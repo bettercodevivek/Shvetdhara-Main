@@ -84,7 +84,7 @@ const HeroCarousel = () => {
   };
 
   return (
-    <section className="relative w-full 105vh overflow-hidden bg-green-100">
+    <section className="relative w-full 105vh overflow-hidden bg-slate-100">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
