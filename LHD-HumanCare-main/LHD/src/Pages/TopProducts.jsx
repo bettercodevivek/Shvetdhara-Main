@@ -1,135 +1,266 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { FaInfoCircle } from "react-icons/fa";
+import React, { useState, useEffect, useCallback } from "react";
+import { ChevronLeft, ChevronRight, Info, Play, Pause } from "lucide-react";
 
 const HeroCarousel = () => {
   const products = [
     {
+      id: 1,
       name: "Pure Cow Milk",
-      tagline: "Nature’s Freshness in Every Drop",
-      video:
-        "https://res.cloudinary.com/dhqffqq46/video/upload/f_auto,q_auto/tmpqralb80y_vdltzu.mp4",
-      details:
-        "Sourced directly from grass-fed cows, unadulterated and fresh daily.",
+      tagline: "Nature's Freshness in Every Drop",
+      video: "https://res.cloudinary.com/dhqffqq46/video/upload/v1758461155/tmp0yudspjd_d3hoyj.mp4",
+      details: "Sourced directly from grass-fed cows, unadulterated and fresh daily.",
+      features: ["100% Pure", "Grass-Fed Cows", "Daily Fresh", "No Additives"],
+      color: "from-green-600 to-emerald-500"
     },
     {
+      id: 2,
       name: "Farm-Fresh Curd",
       tagline: "Smooth & Probiotic Powerhouse",
-      video:
-        "https://res.cloudinary.com/dhqffqq46/video/upload/v1758209645/tmpm10lfujw_jnfipj.mp4",
-      details:
-        "Traditional fermentation process, creamy texture, packed with probiotics.",
+      video: "https://res.cloudinary.com/dhqffqq46/video/upload/v1758463846/tmp2b7gdlgg_fh31qj.mp4",
+      details: "Traditional fermentation process, creamy texture, packed with probiotics.",
+      features: ["Probiotic Rich", "Traditional Process", "Creamy Texture", "Digestive Health"],
+      color: "from-blue-600 to-cyan-500"
     },
     {
+      id: 3,
       name: "Flavored Milk",
       tagline: "Refreshing Taste, Energizing Sip",
-      video:
-        "https://res.cloudinary.com/dhqffqq46/video/upload/f_auto,q_auto/tmpqralb80y_vdltzu.mp4",
-      details:
-        "Available in chocolate, strawberry, and vanilla – perfect anytime refreshment.",
+      video: "https://res.cloudinary.com/dhqffqq46/video/upload/f_auto,q_auto/tmpqralb80y_vdltzu.mp4",
+      details: "Available in chocolate, strawberry, and vanilla – perfect anytime refreshment.",
+      features: ["3 Flavors", "Energy Boost", "Perfect Refreshment", "All Natural"],
+      color: "from-purple-600 to-pink-500"
+    },
+    {
+      id: 4,
+      name: "Flavored Milk",
+      tagline: "Refreshing Taste, Energizing Sip",
+      video: "https://res.cloudinary.com/dhqffqq46/video/upload/v1758209645/tmpm10lfujw_jnfipj.mp4",
+      details: "Available in chocolate, strawberry, and vanilla – perfect anytime refreshment.",
+      features: ["3 Flavors", "Energy Boost", "Perfect Refreshment", "All Natural"],
+      color: "from-purple-600 to-pink-500"
     },
   ];
 
-  const [index, setIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [showDetails, setShowDetails] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [loadedVideos, setLoadedVideos] = useState(new Set());
 
-  // Auto-slide every 5s
+  const currentProduct = products[currentIndex];
+
+  // Auto-advance carousel
   useEffect(() => {
+    if (!isPlaying) return;
+    
     const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % products.length);
+      setCurrentIndex((prev) => (prev + 1) % products.length);
       setShowDetails(false);
-    }, 5000);
+    }, 10000);
+    
     return () => clearInterval(timer);
+  }, [isPlaying, products.length]);
+
+  const goToSlide = useCallback((index) => {
+    setCurrentIndex(index);
+    setShowDetails(false);
+  }, []);
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % products.length);
+    setShowDetails(false);
   }, [products.length]);
 
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev - 1 + products.length) % products.length);
+    setShowDetails(false);
+  }, [products.length]);
+
+  const handleVideoLoad = useCallback((index) => {
+    setLoadedVideos(prev => new Set([...prev, index]));
+  }, []);
+
+  const togglePlayback = () => {
+    setIsPlaying(!isPlaying);
+  };
+
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-black flex items-center justify-center px-6 sm:px-16">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-col-reverse sm:flex-row items-center justify-center gap-8 sm:gap-16 w-full max-w-6xl h-full"
-        >
-          {/* Product Info */}
-          <div className="flex-1 flex flex-col justify-center text-center sm:text-left">
-            <motion.h2
-              key={products[index].name}
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8 }}
-              className="text-4xl sm:text-6xl font-bold mb-4 text-white drop-shadow-lg"
-            >
-              {products[index].name}
-            </motion.h2>
-            <motion.p
-              key={products[index].tagline}
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="text-lg sm:text-2xl text-gray-200 mb-6 drop-shadow-md"
-            >
-              {products[index].tagline}
-            </motion.p>
+    <section className="relative w-full 105vh overflow-hidden bg-green-100">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 25% 25%, white 2px, transparent 2px),
+                           radial-gradient(circle at 75% 75%, white 2px, transparent 2px)`,
+          backgroundSize: '100px 100px'
+        }}></div>
+      </div>
 
-            {/* Details Button */}
-            <button
-              onClick={() => setShowDetails((prev) => !prev)}
-              className="flex items-center gap-2 px-6 py-3 bg-yellow-500 hover:bg-yellow-400 text-black rounded-lg font-semibold shadow-lg transition"
-            >
-              <FaInfoCircle /> {showDetails ? "Hide Details" : "View Details"}
-            </button>
+      {/* Main Content */}
+      <div className="relative z-10 flex items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
+        <div className="w-full max-w-7xl mx-auto">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-screen lg:min-h-0">
+            
+            {/* Content Side */}
+            <div className="w-full space-y-6 sm:space-y-8 text-center lg:text-left order-2 lg:order-1">
+              {/* Product Name */}
+              <div className="space-y-3 sm:space-y-4">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-black leading-tight">
+                  <span className={`bg-gradient-to-r ${currentProduct.color} bg-clip-text text-transparent`}>
+                    {currentProduct.name}
+                  </span>
+                </h1>
+                
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-black font-light max-w-lg mx-auto lg:mx-0">
+                  {currentProduct.tagline}
+                </p>
+              </div>
 
-            {/* Details Reveal */}
-            <AnimatePresence>
-              {showDetails && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 20 }}
-                  transition={{ duration: 0.5 }}
-                  className="mt-6 p-4 bg-black/60 rounded-lg text-gray-200 max-w-md"
+              {/* Features */}
+              <div className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start max-w-lg mx-auto lg:mx-0">
+                {currentProduct.features.map((feature, idx) => (
+                  <span
+                    key={idx}
+                    className="px-3 sm:px-4 py-1.5 sm:py-2 bg-white/10 backdrop-blur-sm rounded-full text-xs sm:text-sm font-medium text-black border border-green-900"
+                  >
+                    {feature}
+                  </span>
+                ))}
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start max-w-lg mx-auto lg:mx-0">
+                <button
+                  onClick={() => setShowDetails(!showDetails)}
+                  className={`flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-lg border-black transition-all duration-300 transform hover:scale-105 ${
+                    showDetails 
+                      ? 'bg-inherit text-black border-black' 
+                      : `bg-gradient-to-r ${currentProduct.color} text-white shadow-lg border-black hover:shadow-xl`
+                  }`}
                 >
-                  {products[index].details}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+                  <Info size={16} className="sm:w-5 sm:h-5" />
+                  {showDetails ? "Hide Details" : "Learn More"}
+                </button>
 
-          {/* Product Video */}
-          <div className="flex-1 flex justify-center items-center">
-            <div className="relative mt-4 sm:mt-0 w-full max-w-md sm:max-w-lg lg:max-w-xl h-[350px] sm:h-[350px] lg:h-[450px] rounded-2xl overflow-hidden shadow-2xl ring-2 ring-green-500/30">
-              <video
-                src={products[index].video}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/20 pointer-events-none"></div>
+                <button
+                  onClick={togglePlayback}
+                  className="flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-sm text-black rounded-xl font-semibold text-sm sm:text-lg border border-green-900 hover:bg-green-200 transition-all duration-300"
+                >
+                  {isPlaying ? <Pause size={16} className="sm:w-5 sm:h-5" /> : <Play size={16} className="sm:w-5 sm:h-5" />}
+                  {isPlaying ? "Pause" : "Play"}
+                </button>
+              </div>
+
+              {/* Details Panel */}
+              <div className={`overflow-hidden transition-all duration-500 ease-out max-w-lg mx-auto lg:mx-0 ${
+                showDetails ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+              }`}>
+                <div className="p-4 sm:p-6 bg-green-300 backdrop-blur-md rounded-2xl border border-green-800">
+                  <p className="text-black text-sm sm:text-base lg:text-lg leading-relaxed">
+                    {currentProduct.details}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Video Side */}
+            <div className="w-full flex items-center justify-center order-1 lg:order-2">
+              <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-4 sm:mx-0">
+                {/* Video Container */}
+                <div className="relative aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4] xl:aspect-[4/5] w-full">
+                  <div className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10">
+                    <video
+                      key={currentProduct.id}
+                      src={currentProduct.video}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      onLoadedData={() => handleVideoLoad(currentIndex)}
+                      className="w-full h-full object-cover"
+                    />
+                    
+                    {/* Video Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                    
+                    {/* Loading State */}
+                    {!loadedVideos.has(currentIndex) && (
+                      <div className="absolute inset-0 bg-gray-800 flex items-center justify-center">
+                        <div className="w-8 h-8 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Decorative Glow */}
+                  <div className={`absolute -inset-4 sm:-inset-6 bg-gradient-to-r ${currentProduct.color} rounded-2xl sm:rounded-3xl opacity-20 blur-xl -z-10`}></div>
+                  
+                  {/* Additional decorative elements for larger screens */}
+                  <div className={`hidden lg:block absolute -inset-8 bg-gradient-to-r ${currentProduct.color} rounded-3xl opacity-10 blur-2xl -z-20`}></div>
+                </div>
+              </div>
             </div>
           </div>
-        </motion.div>
-      </AnimatePresence>
+        </div>
+      </div>
+
+      {/* Navigation Controls */}
+      <div className="absolute inset-y-0 left-2 sm:left-4 flex items-center z-30">
+        <button
+          onClick={prevSlide}
+          className="p-2 sm:p-3 rounded-full bg-white/10 backdrop-blur-sm text-black hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-lg"
+          aria-label="Previous product"
+        >
+          <ChevronLeft size={20} className="sm:w-6 sm:h-6" />
+        </button>
+      </div>
+
+      <div className="absolute inset-y-0 right-2 sm:right-4 flex items-center z-30">
+        <button
+          onClick={nextSlide}
+          className="p-2 sm:p-3 rounded-full bg-white/10 backdrop-blur-sm text-black hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-lg"
+          aria-label="Next product"
+        >
+          <ChevronRight size={20} className="sm:w-6 sm:h-6" />
+        </button>
+      </div>
 
       {/* Dots Navigation */}
-      <div className="absolute bottom-6 w-full flex justify-center gap-3 z-20">
-        {products.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => {
-              setIndex(i);
-              setShowDetails(false);
+      {/* <div className="absolute bottom-0 sm:bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
+          {products.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`relative w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+                index === currentIndex ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/70'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            >
+              {index === currentIndex && (
+                <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${currentProduct.color} animate-pulse`}></div>
+              )}
+            </button>
+          ))}
+        </div>
+      </div> */}
+
+      {/* Progress Bar */}
+      {isPlaying && (
+        <div className="absolute top-0 left-0 w-full h-0.5 sm:h-1 bg-white/10 z-20">
+          <div 
+            className={`h-full bg-gradient-to-r ${currentProduct.color} transition-all duration-100 ease-linear`}
+            style={{
+              width: `${((Date.now() % 10000) / 10000) * 100}%`,
+              animation: 'progressBar 10s linear infinite'
             }}
-            className={`w-4 h-4 rounded-full transition ${
-              i === index ? "bg-green-500 scale-125" : "bg-gray-500"
-            }`}
-          ></button>
-        ))}
-      </div>
+          ></div>
+        </div>
+      )}
+
+      <style jsx>{`
+        @keyframes progressBar {
+          from { width: 0%; }
+          to { width: 100%; }
+        }
+      `}</style>
     </section>
   );
 };

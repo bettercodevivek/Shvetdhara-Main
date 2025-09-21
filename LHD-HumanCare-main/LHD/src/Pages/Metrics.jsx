@@ -42,11 +42,6 @@ const ProductShowcase = () => {
       name: "Organic Range",
       desc: "Certified organic milk and dairy products for conscious living.",
     },
-    {
-      icon: <FaShoppingBasket size={42} />,
-      name: "Value Packs",
-      desc: "Bulk family packs & combos for everyday savings.",
-    },
   ];
 
   return (

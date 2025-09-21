@@ -12,7 +12,6 @@ export default function Navbar() {
 
     const navItems = [
         { to: '/', label: 'Home', icon: FiHome },
-        { to: '/profile', label: 'About Us', icon: FiUser },
         { to: '/vision', label: 'Our Journey', icon: FiEye },
         { to: '/products', label: 'Our Products', icon: GiCow },
         { to: '/contact', label: 'Contact Us', icon: FiMail },
@@ -141,7 +140,6 @@ export default function Navbar() {
     <ul className="flex flex-col px-6 space-y-4">
       {[
         { to: "/home", label: "Home", icon: FiHome },
-        { to: "/profile", label: "Corporate Profile", icon: FiUser },
         { to: "/vision", label: "Our Vision", icon: FiEye },
         { to: "/products", label: "Our Products", icon: FiBox },
         { to: "/contact", label: "Contact Us", icon: FiMail },
