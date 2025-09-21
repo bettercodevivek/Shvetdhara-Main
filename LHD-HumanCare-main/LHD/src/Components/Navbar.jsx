@@ -31,7 +31,7 @@ export default function Navbar() {
         <Link to="/" className="flex items-center space-x-0 group">
           <img
             src="https://i.ibb.co/XZC6T0qR/Shvetdhara-Logo.png"
-            className="h-32 w-auto object-contain drop-shadow-md"
+            className="h-16 w-auto object-contain drop-shadow-md"
             alt="Shvetdhara Logo"
           />
           <div className="hidden md:block pl-2">
@@ -110,7 +110,7 @@ export default function Navbar() {
     <div className="flex items-center justify-between p-5">
       <img
         src="https://i.ibb.co/XZC6T0qR/Shvetdhara-Logo.png"
-        className="h-28 drop-shadow-lg"
+        className="h-16 drop-shadow-lg"
         alt="Sidebar Logo"
       />
       <button
