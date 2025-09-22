@@ -28,7 +28,7 @@ const HeroCarousel = () => {
       video: "https://res.cloudinary.com/dhqffqq46/video/upload/f_auto,q_auto/tmpqralb80y_vdltzu.mp4",
       details: "Available in chocolate, strawberry, and vanilla – perfect anytime refreshment.",
       features: ["3 Flavors", "Energy Boost", "Perfect Refreshment", "All Natural"],
-      color: "from-purple-600 to-pink-500"
+      color: "from-yellow-400 to-yellow-300"
     },
     {
       id: 4,
@@ -37,7 +37,7 @@ const HeroCarousel = () => {
       video: "https://res.cloudinary.com/dhqffqq46/video/upload/v1758209645/tmpm10lfujw_jnfipj.mp4",
       details: "Available in chocolate, strawberry, and vanilla – perfect anytime refreshment.",
       features: ["3 Flavors", "Energy Boost", "Perfect Refreshment", "All Natural"],
-      color: "from-purple-600 to-pink-500"
+      color: "from-rose-300 to-rose-500"
     },
   ];
 

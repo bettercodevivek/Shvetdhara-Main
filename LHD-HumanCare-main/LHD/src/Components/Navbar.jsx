@@ -30,7 +30,7 @@ export default function Navbar() {
         {/* Logo Section */}
         <Link to="/" className="flex items-center space-x-0 group">
           <img
-            src="https://i.ibb.co/XZC6T0qR/Shvetdhara-Logo.png"
+            src="https://i.ibb.co/Nn3db0vV/Shvetdhara-Logo.webp"
             className="h-16 w-auto object-contain drop-shadow-md"
             alt="Shvetdhara Logo"
           />
@@ -109,7 +109,7 @@ export default function Navbar() {
     {/* Header with logo + close */}
     <div className="flex items-center justify-between p-5">
       <img
-        src="https://i.ibb.co/XZC6T0qR/Shvetdhara-Logo.png"
+        src="https://i.ibb.co/Nn3db0vV/Shvetdhara-Logo.webp"
         className="h-16 drop-shadow-lg"
         alt="Sidebar Logo"
       />

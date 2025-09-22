@@ -272,7 +272,7 @@ const ShvetdharaProductsPage = () => {
   return (
     <div className="font-sans bg-white overflow-hidden">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 py-20 sm:py-32 px-4 sm:px-8 overflow-hidden">
+      <section className="relative bg-green-100 py-20 sm:py-32 px-4 sm:px-8 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -288,31 +288,31 @@ const ShvetdharaProductsPage = () => {
 
         <div className="max-w-6xl mx-auto text-center text-white relative z-10">
           <div className="mb-6">
-            <span className="inline-block px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-blue-200 text-sm font-medium border border-white/20">
+            <span className="inline-block px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-black text-sm font-medium border border-green-900">
               Premium Dairy Collection
             </span>
           </div>
           
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">Shvetdhara</span>
+            <span className="bg-green-600 bg-clip-text text-transparent">Shvetdhara</span>
             <br />
-            <span className="bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent">Products</span>
+            <span className="bg-green-600 bg-clip-text text-transparent">Products</span>
           </h1>
           
-          <p className="text-lg sm:text-xl md:text-2xl text-blue-100 mb-8 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-black mb-8 max-w-4xl mx-auto leading-relaxed">
             Discover our range of premium dairy products, crafted with love and delivered with the promise of purity and freshness
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center">
-            <div className="flex items-center gap-2 text-blue-200">
+            <div className="flex items-center gap-2 text-green-900">
               <Leaf size={20} />
               <span>100% Natural</span>
             </div>
-            <div className="flex items-center gap-2 text-blue-200">
+            <div className="flex items-center gap-2 text-green-900">
               <Award size={20} />
               <span>Premium Quality</span>
             </div>
-            <div className="flex items-center gap-2 text-blue-200">
+            <div className="flex items-center gap-2 text-green-900">
               <Shield size={20} />
               <span>Quality Assured</span>
             </div>
@@ -335,7 +335,7 @@ const ShvetdharaProductsPage = () => {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                   selectedCategory === category.id
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg scale-105'
+                    ? 'bg-green-200 text-black shadow-lg scale-105'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105'
                 }`}
               >
@@ -504,31 +504,7 @@ const ShvetdharaProductsPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 py-16 px-4 sm:px-8 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-2xl"></div>
-          <div className="absolute bottom-10 right-10 w-48 h-48 bg-white rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="max-w-4xl mx-auto text-center text-white relative z-10">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-            Experience the <span className="text-yellow-300">Shvetdhara</span> Difference
-          </h2>
-          <p className="text-lg sm:text-xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            Join thousands of families who choose Shvetdhara for their daily dairy needs
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-blue-600 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-              Contact Us
-            </button>
-            <button className="px-8 py-4 bg-white/20 backdrop-blur-sm text-white rounded-xl font-semibold text-lg border-2 border-white/30 hover:bg-white/30 transition-all duration-300">
-              Learn More
-            </button>
-          </div>
-        </div>
-      </section>
+     
 
       {/* Product Modal */}
       <ProductModal 
