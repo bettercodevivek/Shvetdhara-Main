@@ -68,13 +68,13 @@ const Hero = () => {
       {/* Floating Contact Buttons */}
       <div className="fixed bottom-4 right-4 flex flex-col gap-3 z-50">
         <a
-          href="tel:+919068389292"
+          href="tel:+91"
           className="bg-[#93DA97] text-[#333333] p-3 rounded-full shadow-lg hover:bg-[#7BC87F] transition-all duration-300 transform hover:scale-110"
         >
-          <FaPhoneAlt size={24} />
+          <FaPhoneAlt size={22} />
         </a>
         <a
-          href="https://wa.me/919068389292"
+          href="https://wa.me/"
           className="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-110"
         >
           <FaWhatsapp size={24} />
