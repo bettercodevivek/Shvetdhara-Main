@@ -4,22 +4,26 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   const ImageSlide = [
-    "https://i.ibb.co/Cgfrmkx/20250914-2316-Shvetdhara-Dairy-Logo-Scene-remix-01k54n75xaf8jar7pmztdftn5x.webp",
+    "https://i.ibb.co/zW181Gs8/leon-ephraim-Axo-Nnn-H1-Y98-unsplash-1.webp",
     "https://i.ibb.co/NgknQqhP/walk-a2-Kb-Rr-G8-C-w-unsplash.jpg",
     "https://i.ibb.co/8gqDnPYQ/aleksey-melkomukov-v-Eyp-Neg-A9k-unsplash-1.jpg",
   ];
 
   const headings = [
-    { title: "", sub: "" },
-    {
-      title: "From Farm to Family",
-      sub: "Wholesome Milk & Dairy Crafted with Care for Every Home",
-    },
-    {
-      title: "Purity You Can Taste, Trust You Can Rely On",
-      sub: "Building a Legacy of Quality Indian Dairy, One Drop at a Time",
-    },
-  ];
+  {
+    title: "श्वेतधारा – From Farm to Family",
+    sub: "हर घर तक पहुँचती शुद्धता और स्नेह से बनी डेयरी",
+  },
+  {
+    title: "Purity You Can Taste, भरोसा जो दिल को लगे अपना",
+    sub: "श्वेतधारा – हर बूंद में पीढ़ियों का विश्वास",
+  },
+  {
+    title: "Crafted by Tradition, Perfected for Today",
+    sub: "भारत की डेयरी धरोहर, आधुनिक गुणवत्ता के साथ",
+  }
+];
+
 
   const [currentIndex, setIndex] = useState(0);
 
@@ -46,20 +50,20 @@ const Hero = () => {
               className="w-full h-full object-cover rounded-2xl"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-[#93DA97]/40 via-black/30 to-black/60 flex flex-col items-center justify-center rounded-2xl px-4">
-              <h2 className="text-[#FAF9F6] text-2xl sm:text-5xl font-extrabold drop-shadow-lg tracking-wide">
+              <h2 className="text-[#FAF9F6] text-xl sm:text-5xl font-light font-poppins drop-shadow-lg tracking-wide">
                 {headings[index].title}
               </h2>
-              <p className="text-[#FAF9F6] font-medium text-sm sm:text-lg mt-3 opacity-90 max-w-2xl">
+              <p className="text-[#FAF9F6] font-light font-poppins text-xs sm:text-lg mt-3 opacity-90 max-w-2xl">
                 {headings[index].sub}
               </p>
 
-              {/* <Link to="/products">
+              <Link to="/products">
                 <button
-                  className="mt-6 px-6 py-3 bg-[#93DA97] text-[#333333] text-sm sm:text-lg font-semibold rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#7BC87F]"
+                  className="mt-6 px-4 py-2 bg-green-100 text-green-900 text-sm sm:text-lg font-normal rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#7BC87F]"
                 >
                   Explore Products
                 </button>
-              </Link> */}
+              </Link>
             </div>
           </div>
         ))}

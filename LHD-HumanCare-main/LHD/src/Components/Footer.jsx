@@ -1,61 +1,104 @@
-import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import React from "react";
+import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin, Award } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-green-900 text-white">
-      <div className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-4 gap-8">
-        {/* Brand */}
-        <div>
-          <h2 className="text-2xl font-bold text-green-100 mb-4">Shvetdhara</h2>
-          <p className="text-sm leading-relaxed">
-            Nurturing health and happiness since 2016.  
-            Premium quality dairy products, crafted with care for every home.
-          </p>
-        </div>
+    <footer className="bg-green-800 text-white">
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid md:grid-cols-4 gap-12 mb-12">
+          {/* Brand */}
+          <div className="md:col-span-1">
+            <div className="-ml-4 flex items-center mb-6">
+              <img 
+                src="https://i.ibb.co/Nn3db0vV/Shvetdhara-Logo.webp" 
+                alt="Shvetdhara Logo" 
+                className="w-16 h-16 object-contain"
+              />
+              <h2 className="text-2xl font-normal text-white">Shvetdhara</h2>
+            </div>
+            <p className="text-green-100 leading-relaxed ">
+              Leading dairy brand committed to excellence, quality, and sustainable practices since 2002.
+            </p>
+          </div>
 
-        {/* Quick Links */}
-        <div>
-          <h3 className="text-lg font-semibold text-green-100 mb-4">Quick Links</h3>
-          <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-green-200">About Us</a></li>
-            <li><a href="#" className="hover:text-green-200">Our Products</a></li>
-            <li><a href="#" className="hover:text-green-200">Why Choose Us</a></li>
-            <li><a href="#" className="hover:text-green-200">Testimonials</a></li>
-            <li><a href="#" className="hover:text-green-200">Contact</a></li>
-          </ul>
-        </div>
+          {/* Solutions */}
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-6">Our Products</h3>
+            <ul className="space-y-3 text-green-100">
+              <li><a href="#" className="hover:text-white transition-colors">Premium Milk Range</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Premium Dahi Range</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Premium Ghee Range</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Premium Buttermilk Range</a></li>
+            </ul>
+          </div>
 
-        {/* Contact */}
-        <div>
-          <h3 className="text-lg font-semibold text-green-100 mb-4">Contact Us</h3>
-          <p className="text-sm">📍 123 Shvetdhara Dairy Lane, Anand, Gujarat</p>
-          <p className="text-sm">📞 +91 98765 43210</p>
-          <p className="text-sm">✉️ care@shvetdhara.com</p>
-        </div>
+          {/* Company */}
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-6">Company</h3>
+            <ul className="space-y-3 text-green-100">
+              <li><a href="#" className="hover:text-white transition-colors">About Shvetdhara</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Leadership Team</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Certifications</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Sustainability</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+            </ul>
+          </div>
 
-        {/* Socials */}
-        <div>
-          <h3 className="text-lg font-semibold text-green-100 mb-4">Follow Us</h3>
-          <div className="flex space-x-4">
-            <a href="#" className="p-3 bg-green-200 rounded-full hover:bg-green-300">
-              <FaFacebookF className="text-green-200 text-lg" />
-            </a>
-            <a href="#" className="p-3 bg-green-200 rounded-full hover:bg-green-300">
-              <FaInstagram className="text-green-200 text-lg" />
-            </a>
-            <a href="#" className="p-3 bg-green-200 rounded-full hover:bg-green-300">
-              <FaTwitter className="text-green-200 text-lg" />
-            </a>
-            <a href="#" className="p-3 bg-green-200 rounded-full hover:bg-green-300">
-              <FaLinkedinIn className="text-green-200 text-lg" />
-            </a>
+          {/* Contact Information */}
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-6">Contact Information</h3>
+            <div className="space-y-4 text-green-100">
+              <div className="flex items-start">
+                <MapPin className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">Corporate Office</p>
+                  <p className="text-sm">123 Dairy Excellence Park<br />Dehradun</p>
+                </div>
+              </div>
+              <div className="flex items-center">
+                <Phone className="w-5 h-5 mr-3" />
+                <div>
+                  <p className="font-medium">+91 98765 43210</p>
+                  <p className="text-sm">Business Inquiries</p>
+                </div>
+              </div>
+              <div className="flex items-center">
+                <Mail className="w-5 h-5 mr-3" />
+                <div>
+                  <p className="font-medium">business@shvetdhara.com</p>
+                  <p className="text-sm">Partnership Opportunities</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-green-200 mt-8 py-4 text-center text-sm text-white">
-        © {new Date().getFullYear()} Shvetdhara Dairy. All rights reserved.
+        {/* Professional Links & Social */}
+        <div className="border-t border-green-700 pt-8 mb-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-6 md:mb-0">
+              <h4 className="text-lg ml-2 font-semibold text-white mb-4">Connect With Us</h4>
+              <div className="flex space-x-4">
+                <a href="#" className="w-10 h-10 bg-green-700 hover:bg-green-600 rounded-lg flex items-center justify-center transition-colors">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-green-700 hover:bg-green-600 rounded-lg flex items-center justify-center transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-green-700 hover:bg-green-600 rounded-lg flex items-center justify-center transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-green-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-green-100">
+          <div className="mb-4 md:mb-0">
+            <p>© {new Date().getFullYear()} Shvetdhara Dairy . All rights reserved.</p>
+          </div>
+        </div>
       </div>
     </footer>
   );

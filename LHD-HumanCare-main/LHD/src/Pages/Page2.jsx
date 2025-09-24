@@ -1,79 +1,105 @@
 import React from "react";
-import { motion } from "framer-motion";
-import {
-  FaLeaf,
-  FaShieldAlt,
-  FaSmile,
-  FaTruck,
-  FaAward,
-  FaHandsHelping,
-} from "react-icons/fa";
+import { 
+  Leaf, 
+  Shield, 
+  Users, 
+  Truck, 
+  Award, 
+  Heart,
+  CheckCircle 
+} from "lucide-react";
 
 const WhyChooseUs = () => {
   const reasons = [
     {
-      icon: <FaLeaf size={42} />,
+      icon: <Leaf size={32} />,
       title: "Farm Fresh & Natural",
-      desc: "Direct from our farms to your table, ensuring unmatched freshness and nutrition.",
+      desc: "Direct farm-to-table supply chain ensuring optimal freshness, nutritional integrity, and traceability across all product lines.",
     },
     {
-      icon: <FaShieldAlt size={42} />,
-      title: "Pure & Safe",
-      desc: "Every drop undergoes strict quality checks for purity, safety, and hygiene.",
+      icon: <Shield size={32} />,
+      title: "Quality Assurance",
+      desc: "Comprehensive quality control protocols with rigorous testing procedures meeting international safety and purity standards.",
     },
     {
-      icon: <FaSmile size={42} />,
-      title: "Trusted by Families",
-      desc: "Since 2016, Shvetdhara has been a household name for healthy, happy families.",
+      icon: <Users size={32} />,
+      title: "Trusted Partnership",
+      desc: "Established market presence since 2016, building long-term relationships with customers through consistent quality delivery.",
     },
     {
-      icon: <FaTruck size={42} />,
-      title: "Efficient Delivery",
-      desc: "Seamless cold-chain logistics ensure freshness is never compromised.",
+      icon: <Truck size={32} />,
+      title: "Supply Chain Excellence",
+      desc: "Advanced cold-chain logistics infrastructure ensuring product integrity from processing facility to end consumer.",
     },
     {
-      icon: <FaAward size={42} />,
-      title: "Certified Excellence",
-      desc: "International quality standards with a commitment to continuous innovation.",
+      icon: <Award size={32} />,
+      title: "Industry Recognition",
+      desc: "Certified quality management systems with adherence to international standards and commitment to operational excellence.",
     },
     {
-      icon: <FaHandsHelping size={42} />,
-      title: "Sustainable & Ethical",
-      desc: "We care for our cows, farmers, and the planet through sustainable practices.",
+      icon: <Heart size={32} />,
+      title: "Sustainable Operations",
+      desc: "Environmentally responsible practices supporting ethical farming, animal welfare, and community development initiatives.",
     },
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center py-20 bg-green-200 px-6">
-      {/* Heading */}
-      <motion.h1
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-4xl sm:text-5xl font-extrabold mb-12 text-center text-gray-900 tracking-tight"
-      >
-        Why Choose <span className="text-green-600">Shvetdhara</span>?
-      </motion.h1>
+    <div className="bg-green-50 pt-16 py-8 px-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center mb-20">
+          <div className="inline-block px-4 py-2 bg-green-100 text-green-800 text-sm font-medium rounded-full mb-6">
+            Why Partner With Us
+          </div>
+          <h1 className="text-2xl lg:text-5xl font-normal text-gray-900 mb-2 leading-tight">
+            Why Choose <span className="text-green-600 font-semibold">Shvetdhara</span>
+          </h1>
+          {/* <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Distinguished by our commitment to excellence, innovation, and sustainable practices, 
+            we deliver superior dairy solutions that exceed industry standards and customer expectations.
+          </p> */}
+        </div>
 
-      {/* Grid */}
-      <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-        {reasons.map((reason, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-            className="bg-white/90 backdrop-blur-md border border-green-200 rounded-2xl shadow-lg hover:shadow-2xl p-8 flex flex-col items-center text-center transform hover:-translate-y-2 transition duration-300"
-          >
-            <div className="text-green-600 mb-5">{reason.icon}</div>
-            <h3 className="text-xl font-semibold text-gray-800">
-              {reason.title}
-            </h3>
-            <p className="text-gray-600 mt-3 text-sm leading-relaxed">
-              {reason.desc}
-            </p>
-          </motion.div>
-        ))}
+        {/* Reasons Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {reasons.map((reason, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl border border-green-100 p-8 hover:border-green-300 hover:shadow-xl transition-all duration-300 group"
+            >
+              <div className="p-3 bg-green-50 text-green-600 rounded-lg inline-block mb-6 group-hover:bg-green-100 transition-colors">
+                {reason.icon}
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                {reason.title}
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {reason.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Statistics Section */}
+        <div className="bg-white rounded-2xl border border-green-100 p-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="space-y-2">
+              <div className="text-3xl font-bold text-green-600">20+</div>
+              <div className="text-gray-600 font-medium">Years of Excellence</div>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl font-bold text-green-600">100K+</div>
+              <div className="text-gray-600 font-medium">Satisfied Customers</div>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl font-bold text-green-600">100%</div>
+              <div className="text-gray-600 font-medium">Quality Assurance</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Quality Commitment Section */}
+       
       </div>
     </div>
   );

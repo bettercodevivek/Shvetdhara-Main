@@ -1,83 +1,88 @@
 import React from "react";
-import { motion } from "framer-motion";
-import {
-  FaTint,
-  FaCheese,
-  FaIceCream,
-  FaBreadSlice,
-  FaGlassWhiskey,
-  FaLeaf,
-  FaShoppingBasket,
-} from "react-icons/fa";
+import { 
+  Droplets, 
+  Package2, 
+  Coffee, 
+  Wheat, 
+  Milk, 
+  Leaf, 
+  ShoppingCart,
+  ArrowRight 
+} from "lucide-react";
 
 const ProductShowcase = () => {
   const products = [
     {
-      icon: <FaTint size={42} />,
-      name: "Fresh Milk",
-      desc: "Farm-fresh, pure milk with uncompromised quality and nutrition.",
+      icon: <Droplets size={32} />,
+      name: "Premium Milk",
+      desc: "Farm-sourced, quality-assured milk products meeting the highest industry standards for nutrition and purity.",
     },
     {
-      icon: <FaCheese size={42} />,
-      name: "Paneer",
-      desc: "Soft and creamy paneer, perfect for every Indian recipe.",
+      icon: <Package2 size={32} />,
+      name: "Paneer Products",
+      desc: "Artisanally crafted paneer products designed for culinary excellence in commercial and domestic applications.",
     },
     {
-      icon: <FaIceCream size={42} />,
-      name: "Curd & Yogurt",
-      desc: "Probiotic-rich curd and yogurt for a healthier lifestyle.",
+      icon: <Coffee size={32} />,
+      name: "Cultured Dairy",
+      desc: "Probiotic-enriched yogurt and curd products supporting health-conscious consumer preferences and dietary requirements.",
     },
     {
-      icon: <FaBreadSlice size={42} />,
+      icon: <Wheat size={32} />,
       name: "Butter & Ghee",
-      desc: "Golden ghee and smooth butter, crafted with tradition.",
+      desc: "Traditional clarified butter and premium butter products manufactured using time-tested processes and quality ingredients.",
     },
     {
-      icon: <FaGlassWhiskey size={42} />,
-      name: "Flavored Milk",
-      desc: "Exciting flavors blended with pure milk for every mood.",
+      icon: <Milk size={32} />,
+      name: "Flavored Varieties",
+      desc: "Innovative flavored milk solutions catering to diverse consumer tastes while maintaining nutritional integrity.",
     },
     {
-      icon: <FaLeaf size={42} />,
-      name: "Organic Range",
-      desc: "Certified organic milk and dairy products for conscious living.",
+      icon: <Leaf size={32} />,
+      name: "Organic Collection",
+      desc: "Certified organic dairy products supporting sustainable agriculture and meeting premium market segment demands.",
     },
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center py-20 bg-green-100 px-6">
-      {/* Heading */}
-      <motion.h1
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-4xl sm:text-5xl font-extrabold mb-12 text-center text-gray-900 tracking-tight"
-      >
-        Our Premium Dairy Range
-      </motion.h1>
+    <div className="bg-green-50 py-24 px-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center mb-20">
+          <div className="inline-block px-4 py-2 bg-green-100 text-green-800 text-sm font-medium rounded-full mb-6">
+            Product Portfolio
+          </div>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Comprehensive range of premium dairy products
+          </p>
+        </div>
 
-      {/* Products Grid */}
-      <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-        {products.map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-            className="bg-white/90 backdrop-blur-md border border-green-200 rounded-2xl shadow-lg hover:shadow-2xl p-8 flex flex-col items-center text-center transform hover:-translate-y-2 transition duration-300"
-          >
-            <div className="text-green-600 mb-5">{item.icon}</div>
-            <h3 className="text-xl font-semibold text-gray-800">
-              {item.name}
-            </h3>
-            <p className="text-gray-600 mt-3 text-sm leading-relaxed">
-              {item.desc}
-            </p>
-            <button className="mt-6 px-6 py-2 rounded-xl bg-green-500 text-white font-semibold hover:bg-green-600 transition-all shadow-md hover:shadow-lg">
-              Explore
-            </button>
-          </motion.div>
-        ))}
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {products.map((product, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl border border-green-100 p-8 hover:border-green-300 hover:shadow-xl transition-all duration-300 group"
+            >
+              <div className="flex items-center mb-6">
+                <div className="p-3 bg-green-50 text-green-600 rounded-lg group-hover:bg-green-100 transition-colors">
+                  {product.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 ml-4">
+                  {product.name}
+                </h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                {product.desc}
+              </p>
+              <button className="flex items-center text-green-600 font-medium hover:text-green-700 transition-colors group">
+                Learn More
+                <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+          ))}
+        </div>
+
       </div>
     </div>
   );

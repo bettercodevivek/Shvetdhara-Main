@@ -102,7 +102,7 @@ export default function Navbar() {
   ></div>
 
   <div
-    className={`fixed inset-y-0 left-0 w-72 bg-white/40 backdrop-blur-xl shadow-xl border-r border-white/30 transform transition-transform duration-300 ease-in-out ${
+    className={`fixed inset-y-0 left-0 w-60 bg-white/40 backdrop-blur-xl shadow-xl border-r border-white/30 transform transition-transform duration-300 ease-in-out ${
       isSidebarOpen ? "translate-x-0" : "-translate-x-full"
     } rounded-r-2xl flex flex-col justify-between`}
   >
@@ -149,7 +149,7 @@ export default function Navbar() {
             to={to}
             onClick={toggleSidebar}
             className={({ isActive }) =>
-              `flex items-center space-x-4 py-3 px-6 rounded-lg text-lg font-semibold transition-all duration-300 ${
+              `flex items-center space-x-4 py-3 px-6 rounded-lg text-sm font-normal transition-all duration-300 ${
                 isActive
                   ? "text-emerald-600 bg-white/70 shadow-md"
                   : "text-gray-900 bg-white/50 hover:bg-white/70 hover:text-emerald-600"
@@ -167,8 +167,8 @@ export default function Navbar() {
 
     {/* Slogan at the bottom */}
     <div className="p-6 text-center border-t border-white/30">
-      <p className="text-sm font-semibold text-emerald-700 drop-shadow-sm">
-        “Har Din Ki Shuruaat, Shvetdhara ke Saath.”
+      <p className="text-sm font-normal text-green-800 drop-shadow-sm">
+        Har Din Ki Shuruaat, Shvetdhara ke Saath.
       </p>
     </div>
   </div>

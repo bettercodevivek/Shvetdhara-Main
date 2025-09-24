@@ -1,81 +1,108 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { FaQuoteLeft } from "react-icons/fa";
+import { Quote, Star, CheckCircle } from "lucide-react";
 
 const Testimonials = () => {
   const reviews = [
     {
-      name: "Priya Sharma",
-      role: "Nutritionist & Mother",
-      text: "Shvetdhara milk is the only brand I trust for my kids. Fresh, safe, and packed with nutrition.",
+      name: "Dr. Priya Sharma",
+      role: "Chief Nutritionist, Wellness Center",
+      company: "Delhi Nutrition Institute",
+      text: "Shvetdhara's commitment to quality and nutritional excellence makes it our preferred partner for institutional dairy requirements. Their products consistently meet our stringent health standards.",
       img: "https://randomuser.me/api/portraits/women/65.jpg",
+      rating: 5,
     },
     {
       name: "Rohan Patel",
-      role: "Fitness Enthusiast",
-      text: "High-quality protein, fresh taste, and consistent quality. Shvetdhara is a game-changer for my diet.",
+      role: "Operations Manager",
+      company: "FitLife Gyms Chain",
+      text: "The reliability and superior quality of Shvetdhara products have made them integral to our nutrition programs. Their professional service delivery exceeds industry benchmarks.",
       img: "https://randomuser.me/api/portraits/men/41.jpg",
+      rating: 5,
     },
     {
-      name: "Ananya Verma",
-      role: "Chef & Food Blogger",
-      text: "Paneer and ghee from Shvetdhara elevate every dish I prepare. True farm-to-table goodness.",
+      name: "Chef Ananya Verma",
+      role: "Executive Chef & Culinary Director",
+      company: "Premium Hospitality Group",
+      text: "Shvetdhara's premium dairy products elevate our culinary offerings. The consistency in quality and flavor profile is exceptional for our high-end restaurant operations.",
       img: "https://randomuser.me/api/portraits/women/32.jpg",
+      rating: 5,
     },
     {
       name: "Arjun Mehta",
-      role: "Business Professional",
-      text: "Their efficient delivery and premium quality makes Shvetdhara my go-to choice every day.",
+      role: "Procurement Director",
+      company: "Corporate Catering Solutions",
+      text: "Their efficient supply chain management and consistent product quality have streamlined our operations significantly. Shvetdhara demonstrates true business partnership values.",
       img: "https://randomuser.me/api/portraits/men/23.jpg",
+      rating: 5,
     },
   ];
 
+  const stats = [
+    { number: "98%", label: "Client Satisfaction Rate" },
+    { number: "500+", label: "Business Partners" },
+    { number: "15+", label: "Industry Awards" },
+    { number: "8", label: "Years of Excellence" },
+  ];
+
   return (
-    <div className="flex flex-col items-center justify-center py-20 bg-green-100 px-6">
-      {/* Heading */}
-      <motion.h1
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-4xl sm:text-5xl font-extrabold mb-12 text-center text-gray-900 tracking-tight"
-      >
-        What Our Customers Say
-      </motion.h1>
+    <div className="bg-green-50 pt-0 pb-12 px-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center mb-12">
+          <div className="inline-block px-4 py-2 bg-green-100 text-green-800 text-sm font-medium rounded-full mb-6">
+            Client Testimonials
+          </div>
+        </div>
 
-      {/* Grid */}
-      <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10">
-        {reviews.map((review, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-            className="bg-white/90 backdrop-blur-md border border-green-200 rounded-2xl shadow-lg p-8 flex flex-col items-start relative hover:shadow-2xl transform hover:-translate-y-2 transition duration-300"
-          >
-            {/* Quote Icon */}
-            <FaQuoteLeft className="text-green-400 text-2xl absolute -top-4 -left-4 bg-white p-2 rounded-full shadow-md" />
 
-            {/* Text */}
-            <p className="text-gray-700 text-base leading-relaxed mb-6">
-              "{review.text}"
-            </p>
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          {reviews.map((review, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl border border-green-100 p-8 hover:border-green-300 hover:shadow-xl transition-all duration-300 relative"
+            >
+              {/* Quote Icon */}
+              <div className="absolute -top-4 left-8">
+                <div className="bg-green-600 p-3 rounded-full shadow-lg">
+                  <Quote className="w-5 h-5 text-white" />
+                </div>
+              </div>
 
-            {/* Reviewer Info */}
-            <div className="flex items-center gap-4">
-              <img
-                src={review.img}
-                alt={review.name}
-                className="w-14 h-14 rounded-full object-cover border-2 border-green-400 shadow-sm"
-              />
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">
-                  {review.name}
-                </h3>
-                <p className="text-sm text-gray-600">{review.role}</p>
+              {/* Rating */}
+              <div className="flex items-center mb-6 pt-4">
+                {[...Array(review.rating)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                ))}
+              </div>
+
+              {/* Testimonial Text */}
+              <p className="text-gray-700 leading-relaxed mb-8 text-lg">
+                "{review.text}"
+              </p>
+
+              {/* Reviewer Info */}
+              <div className="flex items-center">
+                <img
+                  src={review.img}
+                  alt={review.name}
+                  className="w-16 h-16 rounded-full object-cover border-2 border-green-200"
+                />
+                <div className="ml-4">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                    {review.name}
+                  </h3>
+                  <p className="text-green-600 font-medium text-sm mb-1">
+                    {review.role}
+                  </p>
+                  <p className="text-gray-500 text-sm">
+                    {review.company}
+                  </p>
+                </div>
               </div>
             </div>
-          </motion.div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
