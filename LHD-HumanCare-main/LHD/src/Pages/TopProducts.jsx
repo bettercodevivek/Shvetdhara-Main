@@ -10,7 +10,7 @@ const HeroCarousel = () => {
       video: "https://res.cloudinary.com/dhqffqq46/video/upload/v1758461155/tmp0yudspjd_d3hoyj.mp4",
       details: "Sourced directly from grass-fed cows, unadulterated and fresh daily.",
       features: ["100% Pure", "Grass-Fed Cows", "Daily Fresh", "No Additives"],
-      color: "from-green-600 to-emerald-500"
+      color: "from-sky-500 to-sky-600"
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ const HeroCarousel = () => {
       video: "https://res.cloudinary.com/dhqffqq46/video/upload/v1758463846/tmp2b7gdlgg_fh31qj.mp4",
       details: "Traditional fermentation process, creamy texture, packed with probiotics.",
       features: ["Probiotic Rich", "Traditional Process", "Creamy Texture", "Digestive Health"],
-      color: "from-blue-600 to-cyan-500"
+      color: "from-sky-500 to-sky-600"
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ const HeroCarousel = () => {
       video: "https://res.cloudinary.com/dhqffqq46/video/upload/f_auto,q_auto/tmpqralb80y_vdltzu.mp4",
       details: "Available in chocolate, strawberry, and vanilla – perfect anytime refreshment.",
       features: ["3 Flavors", "Energy Boost", "Perfect Refreshment", "All Natural"],
-      color: "from-yellow-400 to-yellow-300"
+      color: "from-sky-500 to-sky-600"
     },
     {
       id: 4,
@@ -37,7 +37,7 @@ const HeroCarousel = () => {
       video: "https://res.cloudinary.com/dhqffqq46/video/upload/v1758209645/tmpm10lfujw_jnfipj.mp4",
       details: "Available in chocolate, strawberry, and vanilla – perfect anytime refreshment.",
       features: ["3 Flavors", "Energy Boost", "Perfect Refreshment", "All Natural"],
-      color: "from-rose-300 to-rose-500"
+      color: "from-sky-500 to-sky-600"
     },
   ];
 
@@ -119,7 +119,7 @@ const HeroCarousel = () => {
                 {currentProduct.features.map((feature, idx) => (
                   <span
                     key={idx}
-                    className="px-3 sm:px-4 py-1.5 sm:py-2 bg-white/10 backdrop-blur-sm rounded-full text-xs sm:text-sm font-medium text-black border border-green-900"
+                    className="px-3 sm:px-4 py-1.5 sm:py-2 bg-white/10 backdrop-blur-sm rounded-full text-xs sm:text-sm font-medium text-black border border-sky-800"
                   >
                     {feature}
                   </span>
@@ -142,7 +142,7 @@ const HeroCarousel = () => {
 
                 <button
                   onClick={togglePlayback}
-                  className="flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-sm text-black rounded-xl font-semibold text-sm sm:text-lg border border-green-900 hover:bg-green-200 transition-all duration-300"
+                  className="flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-sm text-black rounded-xl font-semibold text-sm sm:text-lg border border-sky-700 hover:bg-sky-200 transition-all duration-300"
                 >
                   {isPlaying ? <Pause size={16} className="sm:w-5 sm:h-5" /> : <Play size={16} className="sm:w-5 sm:h-5" />}
                   {isPlaying ? "Pause" : "Play"}
@@ -153,7 +153,7 @@ const HeroCarousel = () => {
               <div className={`overflow-hidden transition-all duration-500 ease-out max-w-lg mx-auto lg:mx-0 ${
                 showDetails ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
               }`}>
-                <div className="p-4 sm:p-6 bg-green-300 backdrop-blur-md rounded-2xl border border-green-800">
+                <div className="p-4 sm:p-6 bg-sky-300 backdrop-blur-md rounded-2xl border border-sky-800">
                   <p className="text-black text-sm sm:text-base lg:text-lg leading-relaxed">
                     {currentProduct.details}
                   </p>

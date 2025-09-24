@@ -21,10 +21,7 @@ export default function Navbar() {
         <>
         {/* Main Navbar */}
 <header className="sticky top-0 z-50 bg-white shadow-xl">
-  <nav className="relative bg-gradient-to-r from-blue-50 via-white to-green-50 border-b-2 border-emerald-600">
-    {/* Decorative milk splash (super subtle) */}
-    <div className="absolute inset-0 opacity-5 bg-[url('https://i.ibb.co/8YfPvS3/milk-splash.png')] bg-cover bg-center pointer-events-none"></div>
-
+  <nav className="relative bg-gradient-to-r from-blue-50 via-white to-sky-50 border-b-2 border-sky-500">
     <div className="container mx-auto px-4 lg:px-8 relative">
       <div className="flex items-center justify-between h-20">
         {/* Logo Section */}
@@ -35,10 +32,10 @@ export default function Navbar() {
             alt="Shvetdhara Logo"
           />
           <div className="hidden md:block pl-2">
-            <div className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
+            <div className="text-2xl font-medium bg-gradient-to-r from-sky-500 to-sky-600 bg-clip-text text-transparent">
               Shvetdhara
             </div>
-            <div className="text-sm text-cyan-600 font-semibold">
+            <div className="text-sm text-black font-semibold">
               Har Din Ki Shuruaat, Shvetdhara ke Saath.
             </div>
           </div>
@@ -52,7 +49,7 @@ export default function Navbar() {
               to={item.to}
               className={({ isActive }) =>
                 `relative px-6 py-3 font-semibold transition-all duration-500 ${
-                  isActive ? "text-emerald-700" : "text-gray-700"
+                  isActive ? "text-black" : "text-black"
                 }`
               }
             >
@@ -62,7 +59,7 @@ export default function Navbar() {
 
                   {/* Animated wave underline */}
                   <span
-                    className={`absolute left-0 bottom-1 h-[3px] w-full bg-gradient-to-r from-emerald-400 to-green-500 transform scale-x-0 origin-right transition-transform duration-500 ${
+                    className={`absolute left-0 bottom-1 h-[3px] w-full bg-gradient-to-r from-sky-400 to-sky-500 transform scale-x-0 origin-right transition-transform duration-500 ${
                       isActive ? "scale-x-100 origin-left" : "group-hover:scale-x-100 group-hover:origin-left"
                     }`}
                   ></span>
@@ -80,7 +77,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={toggleSidebar}
-          className="lg:hidden relative p-3 rounded-full border-2 border-emerald-600 bg-white text-emerald-700 shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-110"
+          className="lg:hidden relative p-3 rounded-full border-2 border-sky-500 bg-white text-sky-600 shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-110"
           aria-label="Toggle menu"
         >
           {isSidebarOpen ? <FiX size={16} /> : <FiMenu size={16} />}
@@ -116,7 +113,7 @@ export default function Navbar() {
       <button
         onClick={toggleSidebar}
         type="button"
-        className="text-gray-700 hover:text-emerald-600 transition-colors"
+        className="text-gray-700 hover:text-sky-600 transition-colors"
         aria-label="close menu"
       >
         <svg
@@ -151,8 +148,8 @@ export default function Navbar() {
             className={({ isActive }) =>
               `flex items-center space-x-4 py-3 px-6 rounded-lg text-sm font-normal transition-all duration-300 ${
                 isActive
-                  ? "text-emerald-600 bg-white/70 shadow-md"
-                  : "text-gray-900 bg-white/50 hover:bg-white/70 hover:text-emerald-600"
+                  ? "text-sky-600 bg-white/70 shadow-md"
+                  : "text-gray-900 bg-white/50 hover:bg-white/70 hover:text-sky-600"
               }`
             }
           >
@@ -160,14 +157,14 @@ export default function Navbar() {
             <span>{label}</span>
           </NavLink>
           {/* Ripple underline */}
-          <span className="absolute left-6 bottom-1 h-[2px] w-0 bg-gradient-to-r from-emerald-400 to-green-600 rounded-full transition-all duration-500 group-hover:w-[70%]"></span>
+          <span className="absolute left-6 bottom-1 h-[2px] w-0 bg-gradient-to-r from-sky-400 to-sky-600 rounded-full transition-all duration-500 group-hover:w-[70%]"></span>
         </li>
       ))}
     </ul>
 
     {/* Slogan at the bottom */}
     <div className="p-6 text-center border-t border-white/30">
-      <p className="text-sm font-normal text-green-800 drop-shadow-sm">
+      <p className="text-sm font-normal text-sky-700 drop-shadow-sm">
         Har Din Ki Shuruaat, Shvetdhara ke Saath.
       </p>
     </div>

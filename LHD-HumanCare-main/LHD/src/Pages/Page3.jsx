@@ -45,11 +45,11 @@ const Testimonials = () => {
   ];
 
   return (
-    <div className="bg-green-50 pt-0 pb-12 px-6">
+    <div className="bg-sky-50 pt-0 pb-12 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <div className="inline-block px-4 py-2 bg-green-100 text-green-800 text-sm font-medium rounded-full mb-6">
+          <div className="inline-block px-4 py-2 bg-sky-100 text-sky-800 text-sm font-medium rounded-full mb-6">
             Client Testimonials
           </div>
         </div>
@@ -60,11 +60,11 @@ const Testimonials = () => {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl border border-green-100 p-8 hover:border-green-300 hover:shadow-xl transition-all duration-300 relative"
+              className="bg-white rounded-xl border border-sky-100 p-8 hover:border-sky-300 hover:shadow-xl transition-all duration-300 relative"
             >
               {/* Quote Icon */}
               <div className="absolute -top-4 left-8">
-                <div className="bg-green-600 p-3 rounded-full shadow-lg">
+                <div className="bg-sky-600 p-3 rounded-full shadow-lg">
                   <Quote className="w-5 h-5 text-white" />
                 </div>
               </div>
@@ -86,13 +86,13 @@ const Testimonials = () => {
                 <img
                   src={review.img}
                   alt={review.name}
-                  className="w-16 h-16 rounded-full object-cover border-2 border-green-200"
+                  className="w-16 h-16 rounded-full object-cover border-2 border-sky-200"
                 />
                 <div className="ml-4">
                   <h3 className="text-lg font-semibold text-gray-900 mb-1">
                     {review.name}
                   </h3>
-                  <p className="text-green-600 font-medium text-sm mb-1">
+                  <p className="text-sky-600 font-medium text-sm mb-1">
                     {review.role}
                   </p>
                   <p className="text-gray-500 text-sm">

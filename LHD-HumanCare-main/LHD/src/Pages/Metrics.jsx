@@ -45,11 +45,11 @@ const ProductShowcase = () => {
   ];
 
   return (
-    <div className="bg-green-50 py-24 px-6">
+    <div className="bg-sky-100 py-24 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-20">
-          <div className="inline-block px-4 py-2 bg-green-100 text-green-800 text-sm font-medium rounded-full mb-6">
+          <div className="inline-block px-4 py-2 bg-sky-200 text-sky-800 text-sm font-medium rounded-full mb-6">
             Product Portfolio
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -62,20 +62,20 @@ const ProductShowcase = () => {
           {products.map((product, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl border border-green-100 p-8 hover:border-green-300 hover:shadow-xl transition-all duration-300 group"
+              className="bg-white rounded-xl border border-sky-100 p-8 hover:border-sky-300 hover:shadow-xl transition-all duration-300 group"
             >
               <div className="flex items-center mb-6">
-                <div className="p-3 bg-green-50 text-green-600 rounded-lg group-hover:bg-green-100 transition-colors">
+                <div className="p-3 bg-sky-50 text-sky-600 rounded-lg group-hover:bg-sky-100 transition-colors">
                   {product.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 ml-4">
+                <h3 className="text-lg font-normal text-gray-900 ml-4">
                   {product.name}
                 </h3>
               </div>
               <p className="text-gray-600 leading-relaxed mb-6">
                 {product.desc}
               </p>
-              <button className="flex items-center text-green-600 font-medium hover:text-green-700 transition-colors group">
+              <button className="flex items-center text-sky-600 font-medium hover:text-sky-700 transition-colors group">
                 Learn More
                 <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </button>

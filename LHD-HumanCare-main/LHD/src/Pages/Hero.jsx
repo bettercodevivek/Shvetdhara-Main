@@ -11,11 +11,11 @@ const Hero = () => {
 
   const headings = [
   {
-    title: "श्वेतधारा – From Farm to Family",
+    title: "Shvetdhara – From Farm to Family",
     sub: "हर घर तक पहुँचती शुद्धता और स्नेह से बनी डेयरी",
   },
   {
-    title: "Purity You Can Taste, भरोसा जो दिल को लगे अपना",
+    title: "Purity You Can Taste, Trust that wins your heart",
     sub: "श्वेतधारा – हर बूंद में पीढ़ियों का विश्वास",
   },
   {
@@ -59,7 +59,7 @@ const Hero = () => {
 
               <Link to="/products">
                 <button
-                  className="mt-6 px-4 py-2 bg-green-100 text-green-900 text-sm sm:text-lg font-normal rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 hover:bg-[#7BC87F]"
+                  className="mt-6 px-4 py-2 bg-sky-100 text-sky-800 text-sm sm:text-lg font-normal rounded-lg shadow-lg transition-all duration-300"
                 >
                   Explore Products
                 </button>
@@ -73,7 +73,7 @@ const Hero = () => {
       <div className="fixed bottom-4 right-4 flex flex-col gap-3 z-50">
         <a
           href="tel:+91"
-          className="bg-[#93DA97] text-[#333333] p-3 rounded-full shadow-lg hover:bg-[#7BC87F] transition-all duration-300 transform hover:scale-110"
+          className="bg-sky-400 text-white p-3 rounded-full shadow-lg hover:bg-sky-700 transition-all duration-300 transform hover:scale-110"
         >
           <FaPhoneAlt size={22} />
         </a>

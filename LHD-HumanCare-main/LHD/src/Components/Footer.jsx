@@ -3,7 +3,7 @@ import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin, Award } fr
 
 const Footer = () => {
   return (
-    <footer className="bg-green-800 text-white">
+    <footer className="bg-sky-700 text-white">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
@@ -16,7 +16,7 @@ const Footer = () => {
               />
               <h2 className="text-2xl font-normal text-white">Shvetdhara</h2>
             </div>
-            <p className="text-green-100 leading-relaxed ">
+            <p className="text-sky-100 leading-relaxed ">
               Leading dairy brand committed to excellence, quality, and sustainable practices since 2002.
             </p>
           </div>
@@ -24,7 +24,7 @@ const Footer = () => {
           {/* Solutions */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-6">Our Products</h3>
-            <ul className="space-y-3 text-green-100">
+            <ul className="space-y-3 text-sky-100">
               <li><a href="#" className="hover:text-white transition-colors">Premium Milk Range</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Premium Dahi Range</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Premium Ghee Range</a></li>
@@ -35,7 +35,7 @@ const Footer = () => {
           {/* Company */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-6">Company</h3>
-            <ul className="space-y-3 text-green-100">
+            <ul className="space-y-3 text-sky-100">
               <li><a href="#" className="hover:text-white transition-colors">About Shvetdhara</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Leadership Team</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Certifications</a></li>
@@ -47,7 +47,7 @@ const Footer = () => {
           {/* Contact Information */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-6">Contact Information</h3>
-            <div className="space-y-4 text-green-100">
+            <div className="space-y-4 text-sky-100">
               <div className="flex items-start">
                 <MapPin className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" />
                 <div>
@@ -74,18 +74,18 @@ const Footer = () => {
         </div>
 
         {/* Professional Links & Social */}
-        <div className="border-t border-green-700 pt-8 mb-8">
+        <div className="border-t border-sky-700 pt-8 mb-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
               <h4 className="text-lg ml-2 font-semibold text-white mb-4">Connect With Us</h4>
               <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 bg-green-700 hover:bg-green-600 rounded-lg flex items-center justify-center transition-colors">
+                <a href="#" className="w-10 h-10 bg-sky-700 hover:bg-sky-600 rounded-lg flex items-center justify-center transition-colors">
                   <Facebook className="w-5 h-5" />
                 </a>
-                <a href="#" className="w-10 h-10 bg-green-700 hover:bg-green-600 rounded-lg flex items-center justify-center transition-colors">
+                <a href="#" className="w-10 h-10 bg-sky-700 hover:bg-sky-600 rounded-lg flex items-center justify-center transition-colors">
                   <Instagram className="w-5 h-5" />
                 </a>
-                <a href="#" className="w-10 h-10 bg-green-700 hover:bg-green-600 rounded-lg flex items-center justify-center transition-colors">
+                <a href="#" className="w-10 h-10 bg-sky-700 hover:bg-sky-600 rounded-lg flex items-center justify-center transition-colors">
                   <Linkedin className="w-5 h-5" />
                 </a>
               </div>
@@ -94,7 +94,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-green-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-green-100">
+        <div className="border-t border-sky-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-sky-100">
           <div className="mb-4 md:mb-0">
             <p>© {new Date().getFullYear()} Shvetdhara Dairy . All rights reserved.</p>
           </div>
