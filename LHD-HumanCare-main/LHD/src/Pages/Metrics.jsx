@@ -45,11 +45,11 @@ const ProductShowcase = () => {
   ];
 
   return (
-    <div className="bg-sky-100 py-24 px-6">
+    <div className="bg-white py-24 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-20">
-          <div className="inline-block px-4 py-2 bg-sky-200 text-sky-800 text-sm font-medium rounded-full mb-6">
+          <div className="inline-block px-4 py-2 bg-white text-sky-800 border-sky-300 border text-sm font-medium rounded-full mb-6">
             Product Portfolio
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -62,10 +62,10 @@ const ProductShowcase = () => {
           {products.map((product, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl border border-sky-100 p-8 hover:border-sky-300 hover:shadow-xl transition-all duration-300 group"
+              className="bg-white rounded-xl border border-sky-300 p-8 hover:border-sky-400 hover:shadow-xl transition-all duration-300 group"
             >
               <div className="flex items-center mb-6">
-                <div className="p-3 bg-sky-50 text-sky-600 rounded-lg group-hover:bg-sky-100 transition-colors">
+                <div className="p-3 bg-sky-100 text-sky-600 rounded-lg group-hover:bg-sky-50 transition-colors">
                   {product.icon}
                 </div>
                 <h3 className="text-lg font-normal text-gray-900 ml-4">

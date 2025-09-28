@@ -45,11 +45,11 @@ const Testimonials = () => {
   ];
 
   return (
-    <div className="bg-sky-50 pt-0 pb-12 px-6">
+    <div className="bg-white pt-0 pb-12 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <div className="inline-block px-4 py-2 bg-sky-100 text-sky-800 text-sm font-medium rounded-full mb-6">
+          <div className="inline-block px-4 py-2 bg-white border border-sky-300 text-sky-800 text-sm font-medium rounded-full mb-6">
             Client Testimonials
           </div>
         </div>

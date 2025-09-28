@@ -44,11 +44,11 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <div className="bg-sky-50 pt-16 py-8 px-6">
+    <div className="bg-white pt-16 py-8 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-20">
-          <div className="inline-block px-4 py-2 bg-sky-100 text-sky-800 text-sm font-medium rounded-full mb-6">
+          <div className="inline-block px-4 py-2 bg-white text-sky-800 border-sky-300 border text-sm font-medium rounded-full mb-6">
             Why Partner With Us
           </div>
           <h1 className="text-2xl lg:text-5xl font-normal text-gray-900 mb-2 leading-tight">
@@ -65,9 +65,9 @@ const WhyChooseUs = () => {
           {reasons.map((reason, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl border border-sky-100 p-8 hover:border-sky-300 hover:shadow-xl transition-all duration-300 group"
+              className="bg-white rounded-xl border border-sky-300 p-8 hover:border-sky-400 hover:shadow-xl transition-all duration-300 group"
             >
-              <div className="p-3 bg-sky-50 text-sky-600 rounded-lg inline-block mb-6 group-hover:bg-sky-100 transition-colors">
+              <div className="p-3 bg-sky-100 text-sky-600 rounded-lg inline-block mb-6 group-hover:bg-sky-50 transition-colors">
                 {reason.icon}
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
@@ -81,7 +81,7 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Statistics Section */}
-        <div className="bg-white rounded-2xl border border-sky-100 p-12">
+        <div className="bg-white rounded-2xl border border-sky-300 p-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="space-y-2">
               <div className="text-3xl font-bold text-sky-600">20+</div>

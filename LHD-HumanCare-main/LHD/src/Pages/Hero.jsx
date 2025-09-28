@@ -59,7 +59,7 @@ const Hero = () => {
 
               <Link to="/products">
                 <button
-                  className="mt-6 px-4 py-2 bg-sky-100 text-sky-800 text-sm sm:text-lg font-normal rounded-lg shadow-lg transition-all duration-300"
+                  className="mt-6 px-4 py-2 bg-white border-2 border-sky-100 text-sky-800 text-sm sm:text-lg font-normal rounded-lg shadow-lg transition-all duration-300"
                 >
                   Explore Products
                 </button>

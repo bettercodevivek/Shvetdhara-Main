@@ -255,12 +255,12 @@ const HeroCarousel = () => {
         </div>
       )}
 
-      <style jsx>{`
-        @keyframes progressBar {
-          from { width: 0%; }
-          to { width: 100%; }
-        }
-      `}</style>
+     <style>{`
+     @keyframes progressBar {
+    from { width: 0%; }
+    to { width: 100%; }
+  }
+`}</style>
     </section>
   );
 };

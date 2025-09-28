@@ -53,36 +53,36 @@ const ShvetdharaContactPage = () => {
       title: "Call Us",
       details: "+91 98765 43210",
       subDetails: "Mon-Sat: 6:00 AM - 8:00 PM",
-      bgColor: "bg-green-50",
-      iconColor: "text-green-600",
-      borderColor: "border-green-200"
+      bgColor: "bg-sky-100",
+      iconColor: "text-sky-600",
+      borderColor: "border-sky-200"
     },
     {
       icon: <Mail size={28} />,
       title: "Email Us",
       details: "hello@shvetdhara.com",
       subDetails: "We reply within 2-4 hours",
-      bgColor: "bg-blue-50",
-      iconColor: "text-blue-600",
-      borderColor: "border-blue-200"
+      bgColor: "bg-sky-100",
+      iconColor: "text-sky-600",
+      borderColor: "border-sky-200"
     },
     {
       icon: <MapPin size={28} />,
       title: "Visit Our Farm",
       details: "123 Dairy Farm Road",
       subDetails: "Meerut, Uttar Pradesh 250001",
-      bgColor: "bg-amber-50",
-      iconColor: "text-amber-600",
-      borderColor: "border-amber-200"
+      bgColor: "bg-sky-100",
+      iconColor: "text-sky-600",
+      borderColor: "border-sky-200"
     },
     {
       icon: <Clock size={28} />,
       title: "Delivery Hours",
       details: "6:00 AM - 8:00 PM",
       subDetails: "Fresh delivery 7 days a week",
-      bgColor: "bg-emerald-50",
-      iconColor: "text-emerald-600",
-      borderColor: "border-emerald-200"
+      bgColor: "bg-sky-100",
+      iconColor: "text-sky-600",
+      borderColor: "border-sky-200"
     }
   ];
 
@@ -91,29 +91,29 @@ const ShvetdharaContactPage = () => {
       icon: <Leaf size={32} />,
       title: "100% Natural",
       description: "No artificial additives, just pure milk from happy cows",
-      iconColor: "text-green-600",
-      bgColor: "bg-green-50"
+      iconColor: "text-sky-600",
+      bgColor: "bg-sky-100"
     },
     {
       icon: <Sun size={32} />,
       title: "Farm Fresh Daily",
       description: "Collected every morning and delivered the same day",
-      iconColor: "text-yellow-600",
-      bgColor: "bg-yellow-50"
+      iconColor: "text-sky-600",
+      bgColor: "bg-sky-100"
     },
     {
       icon: <Heart size={32} />,
       title: "Family Care",
       description: "A family business caring for families like yours",
-      iconColor: "text-red-500",
-      bgColor: "bg-red-50"
+      iconColor: "text-sky-600",
+      bgColor: "bg-sky-100"
     },
     {
       icon: <Shield size={32} />,
       title: "Quality Promise",
       description: "Rigorous testing ensures the highest quality standards",
-      iconColor: "text-blue-600",
-      bgColor: "bg-blue-50"
+      iconColor: "text-sky-600",
+      bgColor: "bg-sky-100"
     }
   ];
 
@@ -144,18 +144,18 @@ const ShvetdharaContactPage = () => {
   return (
     <div className="font-sans bg-white">
       {/* Hero Section */}
-      <section className="relative bg-green-50 py-16 sm:py-24 px-4 sm:px-8 overflow-hidden">
+      <section className="relative bg-sky-100 py-16 sm:py-24 px-4 sm:px-8 overflow-hidden">
         {/* Subtle farm pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
+          {/* <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23059669' fill-opacity='0.1'%3E%3Cpath d='M20 20c0 11.046-8.954 20-20 20v-40c11.046 0 20 8.954 20 20z'/%3E%3C/g%3E%3C/svg%3E")`,
             backgroundSize: '40px 40px'
-          }}></div>
+          }}></div> */}
         </div>
 
         <div className="max-w-6xl mx-auto text-center relative z-10">
           <div className="mb-8">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full text-green-700 text-sm font-medium shadow-sm border border-green-200">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full text-sky-700 text-sm font-medium shadow-sm border border-sky-200">
               <Leaf size={16} />
               Farm Fresh • Family Owned
             </span>
@@ -163,7 +163,7 @@ const ShvetdharaContactPage = () => {
           
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight text-gray-800">
             Connect with
-            <span className="block text-green-600">Shvetdhara</span>
+            <span className="block text-sky-600">Shvetdhara</span>
           </h1>
           
           <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
@@ -173,15 +173,15 @@ const ShvetdharaContactPage = () => {
 
           <div className="flex flex-wrap gap-8 justify-center text-sm">
             <div className="flex items-center gap-2 text-gray-600">
-              <MessageCircle size={18} className="text-green-600" />
+              <MessageCircle size={18} className="text-sky-600" />
               <span>Quick Response</span>
             </div>
             <div className="flex items-center gap-2 text-gray-600">
-              <Users size={18} className="text-green-600" />
+              <Users size={18} className="text-sky-600" />
               <span>Personal Service</span>
             </div>
             <div className="flex items-center gap-2 text-gray-600">
-              <Heart size={18} className="text-green-600" />
+              <Heart size={18} className="text-sky-600" />
               <span>Family Care</span>
             </div>
           </div>
@@ -196,7 +196,7 @@ const ShvetdharaContactPage = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
-              Get in <span className="text-green-600">Touch</span>
+              Get in <span className="text-sky-600">Touch</span>
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               Multiple ways to connect with us. Choose what's most convenient for you.
@@ -240,7 +240,7 @@ const ShvetdharaContactPage = () => {
               }`}
             >
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div className="h-64 bg-green-100">
+                <div className="h-64 bg-sky-100">
                   <img
                     src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
                     alt="Shvetdhara Dairy Farm"
@@ -250,7 +250,7 @@ const ShvetdharaContactPage = () => {
                 
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                    Visit Our <span className="text-green-600">Farm</span>
+                    Visit Our <span className="text-sky-600">Farm</span>
                   </h3>
                   <p className="text-gray-600 mb-6 leading-relaxed">
                     Come and see where the magic happens! Experience our farm-to-table process, meet our happy cows, 
@@ -259,7 +259,7 @@ const ShvetdharaContactPage = () => {
                   
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
-                      <MapPin size={20} className="text-green-600 mt-1 flex-shrink-0" />
+                      <MapPin size={20} className="text-sky-600 mt-1 flex-shrink-0" />
                       <div>
                         <p className="font-medium text-gray-800">123 Dairy Farm Road</p>
                         <p className="text-gray-600">Meerut, Uttar Pradesh 250001</p>
@@ -267,7 +267,7 @@ const ShvetdharaContactPage = () => {
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <Clock size={20} className="text-green-600 mt-1 flex-shrink-0" />
+                      <Clock size={20} className="text-sky-600 mt-1 flex-shrink-0" />
                       <div>
                         <p className="font-medium text-gray-800">Visit Hours: 8:00 AM - 6:00 PM</p>
                         <p className="text-gray-600">Monday to Saturday</p>
@@ -275,7 +275,7 @@ const ShvetdharaContactPage = () => {
                     </div>
                   </div>
 
-                  <button className="mt-6 flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition-colors duration-300">
+                  <button className="mt-6 flex items-center gap-2 px-6 py-3 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700 transition-colors duration-300">
                     Get Directions
                     <ChevronRight size={18} />
                   </button>
@@ -291,7 +291,7 @@ const ShvetdharaContactPage = () => {
               }`}
             >
               <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8">
-                Why Choose <span className="text-green-600">Shvetdhara?</span>
+                Why Choose <span className="text-sky-600">Shvetdhara?</span>
               </h3>
               
               <div className="space-y-6">
@@ -323,7 +323,7 @@ const ShvetdharaContactPage = () => {
       <section className="bg-white py-16 px-4 sm:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-6 leading-tight">
-            Ready to Experience <span className="text-green-600">Farm Fresh</span> Dairy?
+            Ready to Experience <span className="text-sky-600">Farm Fresh</span> Dairy?
           </h2>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
             Join hundreds of families who trust Shvetdhara for their daily dairy needs. 
@@ -331,11 +331,11 @@ const ShvetdharaContactPage = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="flex items-center justify-center gap-2 px-8 py-4 bg-green-600 text-white rounded-xl font-semibold text-lg hover:bg-green-700 transform hover:scale-105 transition-all duration-300 shadow-lg">
+            <button className="flex items-center justify-center gap-2 px-8 py-4 bg-sky-600 text-white rounded-xl font-semibold text-lg hover:bg-sky-700 transform hover:scale-105 transition-all duration-300 shadow-lg">
               <Phone size={20} />
               Call Us Now
             </button>
-            <button className="flex items-center justify-center gap-2 px-8 py-4 bg-white text-green-600 rounded-xl font-semibold text-lg border-2 border-green-600 hover:bg-green-50 transition-all duration-300">
+            <button className="flex items-center justify-center gap-2 px-8 py-4 bg-white text-sky-600 rounded-xl font-semibold text-lg border-2 border-sky-600 hover:bg-sky-100 transition-all duration-300">
               <MapPin size={20} />
               Visit Our Farm
             </button>
