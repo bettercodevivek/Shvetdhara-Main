@@ -103,7 +103,7 @@ const AboutUsFarmToGlass = () => {
         <div className="relative z-10 text-center text-white px-4 sm:px-8 max-w-5xl mx-auto">
           <div className="mb-6">
             <span className="inline-block px-6 py-3 bg-sky-500/20 backdrop-blur-sm rounded-full text-sky-300 text-sm font-medium border border-sky-500/30">
-              Premium Dairy Since 2008
+              Premium Dairy Since 2002
             </span>
           </div>
           
