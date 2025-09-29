@@ -115,10 +115,10 @@ const AboutUsFarmToGlass = () => {
             Fresh, wholesome, and pure dairy products crafted with love and delivered with care to families across the region
           </p>
 
-          <button className="group flex items-center gap-3 mx-auto px-8 py-4 bg-gradient-to-r from-sky-600 to-sky-500 text-white rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+          {/* <button className="group flex items-center gap-3 mx-auto px-8 py-4 bg-gradient-to-r from-sky-600 to-sky-500 text-white rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
             Discover Our Story
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-          </button>
+          </button> */}
         </div>
 
         {/* Scroll Indicator
@@ -156,7 +156,7 @@ const AboutUsFarmToGlass = () => {
       {/* Our Story Section */}
       <section 
         ref={(el) => pushRef(el, 'story')}
-        className="max-w-7xl mx-auto my-20 sm:my-32 px-4 sm:px-8"
+        className="max-w-7xl text-center mx-auto my-20 sm:my-32 px-4 sm:px-8"
       >
         <div className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-16 transition-all duration-1000 transform ${
           visibleSections.has('story') ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
@@ -184,7 +184,7 @@ const AboutUsFarmToGlass = () => {
             </div>
             
             <p className="text-gray-600 text-lg sm:text-xl leading-relaxed">
-              Since 2008, our dairy brand has worked closely with local Indian farmers to bring the freshest, purest milk and dairy products directly to your home.
+              Since 2002, our dairy brand has worked closely with local Indian farmers to bring the freshest, purest milk and dairy products directly to your home.
             </p>
             
             <p className="text-gray-600 text-lg sm:text-xl leading-relaxed">
@@ -278,7 +278,7 @@ const AboutUsFarmToGlass = () => {
       A Journey of <span className="bg-gradient-to-r from-sky-400 to-sky-500 bg-clip-text text-transparent">Excellence</span>
     </h2>
     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-      From humble beginnings to becoming India's trusted dairy partner, our commitment to quality and innovation has shaped decades of success.
+      From humble beginnings to becoming Dehradun's trusted dairy partner, our commitment to quality and innovation has shaped decades of success.
     </p>
   </div>
 

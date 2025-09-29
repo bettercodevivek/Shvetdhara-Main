@@ -1,8 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useSearchParams } from 'react-router-dom';
 import { Search, Filter, Grid3X3, List, X, Award, Shield, Leaf, Users, Clock, Star, ArrowRight, Package, Truck, CheckCircle, Phone, Mail } from "lucide-react";
 
 const ShvetdharaProductsPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  
+  const [searchParams] = useSearchParams(); // Add this hook
+  const categoryFromURL = searchParams.get('category'); // Get category from URL 
+  const [selectedCategory, setSelectedCategory] = useState(categoryFromURL || 'all'); // Initialize with URL param
   const [viewMode, setViewMode] = useState('grid');
   const [searchTerm, setSearchTerm] = useState('');
   const [showFilters, setShowFilters] = useState(false);
@@ -10,18 +14,18 @@ const ShvetdharaProductsPage = () => {
 
   const categories = [
     { id: 'all', name: 'All Products', count: 12 },
-    { id: 'milk', name: 'Fresh Milk', count: 3 },
-    { id: 'curd', name: 'Curd & Yogurt', count: 2 },
-    { id: 'flavored', name: 'Flavored Milk', count: 2 },
-    { id: 'premium', name: 'Premium Range', count: 2 },
-    { id: 'organic', name: 'Organic Products', count: 2 },
-    { id: 'traditional', name: 'Traditional Items', count: 1 }
+    { id: 'milk', name: 'Fresh Milk', count: 6},
+    { id: 'curd', name: 'Curd & Yogurt', count: 4 },
+    { id: 'flavored', name: 'Flavored Milk', count: 1 },
+    { id: 'chhaach', name: 'Butter Milk', count: 1 },
+    { id: 'ghee', name: 'Ghee', count: 2 },
+    { id: 'others', name: 'Other Products', count: 1 }
   ];
 
   const products = [
     {
       id: 1,
-      name: "Fresh Cow Milk",
+      name: "Pasteurised Standardised Milk",
       category: "milk",
       tagline: "Pure and Natural",
       image: "https://i.ibb.co/1k2HTcy/IMG-1655-min.webp",
@@ -40,13 +44,13 @@ const ShvetdharaProductsPage = () => {
     },
     {
       id: 2,
-      name: "Fresh Curd",
-      category: "curd",
+      name: "Pasteurised Toned Milk",
+      category: "milk",
       tagline: "Healthy & Creamy",
       image: "https://i.ibb.co/D3psJw0/IMG-1654-min.webp",
       price: "₹55/kg",
       description: "Smooth and creamy curd made from our fresh milk. Rich in probiotics and perfect for digestion.",
-      features: ["Probiotic Rich", "Smooth Texture", "Traditional Method", "Digestive Health"],
+      features: ["Smooth Texture", "Traditional Method", "Digestive Health"],
       nutritionalInfo: {
         protein: "4.1g per 100g",
         probiotics: "Live cultures",
@@ -59,7 +63,7 @@ const ShvetdharaProductsPage = () => {
     },
     {
       id: 3,
-      name: "Chocolate Milk",
+      name: "Special Tea Milk",
       category: "flavored",
       tagline: "Kids' Favorite",
       image: "https://i.ibb.co/Kj5jd1hM/IMG-1652-min.webp",
@@ -78,8 +82,8 @@ const ShvetdharaProductsPage = () => {
     },
     {
       id: 4,
-      name: "Strawberry Milk",
-      category: "flavored",
+      name: "Special Tea Milk",
+      category: "milk",
       tagline: "Fresh & Fruity",
       image: "https://i.ibb.co/Q7PTP549/IMG-1651-min.webp",
       price: "₹35/500ml",
@@ -97,8 +101,8 @@ const ShvetdharaProductsPage = () => {
     },
     {
       id: 5,
-      name: "Premium Yogurt",
-      category: "premium",
+      name: "Fresh Dahi",
+      category: "curd",
       tagline: "Thick & Creamy",
       image: "https://i.ibb.co/XxbPxwmn/IMG-1660.jpg",
       price: "₹75/500g",
@@ -116,10 +120,10 @@ const ShvetdharaProductsPage = () => {
     },
     {
       id: 6,
-      name: "A2 Milk",
-      category: "premium",
+      name: "Halwai Special Milk",
+      category: "milk",
       tagline: "Easy to Digest",
-      image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400",
+      image: "https://i.ibb.co/WWtPsKdC/IMG-1665.jpg",
       price: "₹65/Ltr",
       description: "Premium A2 milk from specially selected cows. Easier to digest and naturally pure.",
       features: ["A2 Protein", "Easy Digest", "Premium Cows", "Natural"],
@@ -132,7 +136,140 @@ const ShvetdharaProductsPage = () => {
       benefits: ["Better Digestion", "Pure Nutrition", "Gentle on Stomach", "Premium Quality"],
       shelfLife: "3-4 days when refrigerated",
       bestFor: "People with sensitive digestion"
-    }
+    },
+    {
+      id: 8,
+      name: "Lite Dahi",
+      category: "curd",
+      tagline: "Easy to Digest",
+      image: "https://i.ibb.co/kVfQ4CF5/IMG-1663.jpg",
+      price: "₹65/Ltr",
+      description: "Premium A2 milk from specially selected cows. Easier to digest and naturally pure.",
+      features: ["A2 Protein", "Easy Digest", "Premium Cows", "Natural"],
+      nutritionalInfo: {
+        protein: "3.8g per 100ml",
+        a2_protein: "100%",
+        calcium: "135mg per 100ml",
+        omega_3: "Natural"
+      },
+      benefits: ["Better Digestion", "Pure Nutrition", "Gentle on Stomach", "Premium Quality"],
+      shelfLife: "3-4 days when refrigerated",
+      bestFor: "People with sensitive digestion"
+    },
+     {
+      id: 9,
+      name: "Diet Mast Matka Dahi",
+      category: "curd",
+      tagline: "Easy to Digest",
+      image: "https://i.ibb.co/7tT0StYQ/IMG-1631-min.webp",
+      price: "₹65/Ltr",
+      description: "Premium A2 milk from specially selected cows. Easier to digest and naturally pure.",
+      features: ["A2 Protein", "Easy Digest", "Premium Cows", "Natural"],
+      nutritionalInfo: {
+        protein: "3.8g per 100ml",
+        a2_protein: "100%",
+        calcium: "135mg per 100ml",
+        omega_3: "Natural"
+      },
+      benefits: ["Better Digestion", "Pure Nutrition", "Gentle on Stomach", "Premium Quality"],
+      shelfLife: "3-4 days when refrigerated",
+      bestFor: "People with sensitive digestion"
+    },
+     {
+      id: 10,
+      name: "Shvetdhara Rabri",
+      category: "other",
+      tagline: "Easy to Digest",
+      image: "https://i.ibb.co/84sq2Pv6/IMG-1642-min.webp",
+      price: "₹65/Ltr",
+      description: "Premium A2 milk from specially selected cows. Easier to digest and naturally pure.",
+      features: ["A2 Protein", "Easy Digest", "Premium Cows", "Natural"],
+      nutritionalInfo: {
+        protein: "3.8g per 100ml",
+        a2_protein: "100%",
+        calcium: "135mg per 100ml",
+        omega_3: "Natural"
+      },
+      benefits: ["Better Digestion", "Pure Nutrition", "Gentle on Stomach", "Premium Quality"],
+      shelfLife: "3-4 days when refrigerated",
+      bestFor: "People with sensitive digestion"
+    },
+     {
+      id: 11,
+      name: "Masala Chhaach",
+      category: "chhaach",
+      tagline: "Easy to Digest",
+      image: "https://i.ibb.co/jP3NqM8M/IMG-1645-min.webp",
+      price: "₹65/Ltr",
+      description: "Premium A2 milk from specially selected cows. Easier to digest and naturally pure.",
+      features: ["A2 Protein", "Easy Digest", "Premium Cows", "Natural"],
+      nutritionalInfo: {
+        protein: "3.8g per 100ml",
+        a2_protein: "100%",
+        calcium: "135mg per 100ml",
+        omega_3: "Natural"
+      },
+      benefits: ["Better Digestion", "Pure Nutrition", "Gentle on Stomach", "Premium Quality"],
+      shelfLife: "3-4 days when refrigerated",
+      bestFor: "People with sensitive digestion"
+    },
+     {
+      id: 12,
+      name: "Slim Lite Milk",
+      category: "milk",
+      tagline: "Easy to Digest",
+      image: "https://i.ibb.co/NgKjq6hL/IMG-1669-min.webp",
+      price: "₹65/Ltr",
+      description: "Premium A2 milk from specially selected cows. Easier to digest and naturally pure.",
+      features: ["A2 Protein", "Easy Digest", "Premium Cows", "Natural"],
+      nutritionalInfo: {
+        protein: "3.8g per 100ml",
+        a2_protein: "100%",
+        calcium: "135mg per 100ml",
+        omega_3: "Natural"
+      },
+      benefits: ["Better Digestion", "Pure Nutrition", "Gentle on Stomach", "Premium Quality"],
+      shelfLife: "3-4 days when refrigerated",
+      bestFor: "People with sensitive digestion"
+    },
+     {
+      id: 13,
+      name: "Pasteurised Full Cream Milk",
+      category: "milk",
+      tagline: "Easy to Digest",
+      image: "https://i.ibb.co/jZhW7RZV/IMG-1648-min.webp",
+      price: "₹65/Ltr",
+      description: "Premium A2 milk from specially selected cows. Easier to digest and naturally pure.",
+      features: ["A2 Protein", "Easy Digest", "Premium Cows", "Natural"],
+      nutritionalInfo: {
+        protein: "3.8g per 100ml",
+        a2_protein: "100%",
+        calcium: "135mg per 100ml",
+        omega_3: "Natural"
+      },
+      benefits: ["Better Digestion", "Pure Nutrition", "Gentle on Stomach", "Premium Quality"],
+      shelfLife: "3-4 days when refrigerated",
+      bestFor: "People with sensitive digestion"
+    },
+    {
+      id: 14,
+      name: "Diet Mast Matka Dahi",
+      category: "curd",
+      tagline: "Easy to Digest",
+      image: "https://i.ibb.co/9ksQ2JP5/IMG-1638-min.webp",
+      price: "₹65/Ltr",
+      description: "Premium A2 milk from specially selected cows. Easier to digest and naturally pure.",
+      features: ["A2 Protein", "Easy Digest", "Premium Cows", "Natural"],
+      nutritionalInfo: {
+        protein: "3.8g per 100ml",
+        a2_protein: "100%",
+        calcium: "135mg per 100ml",
+        omega_3: "Natural"
+      },
+      benefits: ["Better Digestion", "Pure Nutrition", "Gentle on Stomach", "Premium Quality"],
+      shelfLife: "3-4 days when refrigerated",
+      bestFor: "People with sensitive digestion"
+    },
   ];
 
   const filteredProducts = products.filter(product => {
@@ -456,7 +593,7 @@ const ShvetdharaProductsPage = () => {
         </div>
       </div>
 
-      {/* Simple CTA */}
+      {/* Simple CTA
       <section className="bg-sky-600 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Want Fresh Dairy Products?</h2>
@@ -473,7 +610,7 @@ const ShvetdharaProductsPage = () => {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
     </div>
