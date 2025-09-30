@@ -11,16 +11,13 @@ const Hero = () => {
 
   const headings = [
   {
-    title: "Shvetdhara – From Farm to Family",
-    sub: "हर घर तक पहुँचती शुद्धता और स्नेह से बनी डेयरी",
+    title: "Shvetdhara – From Farm to Family"
   },
   {
-    title: "Purity You Can Taste, Trust that wins your heart",
-    sub: "श्वेतधारा – हर बूंद में पीढ़ियों का विश्वास",
+    title: "Purity You Can Taste, Trust that wins your heart"
   },
   {
-    title: "Crafted by Tradition, Perfected for Today",
-    sub: "भारत की डेयरी धरोहर, आधुनिक गुणवत्ता के साथ",
+    title: "Crafted by Tradition, Perfected for Today"
   }
 ];
 
@@ -53,9 +50,9 @@ const Hero = () => {
               <h2 className="text-[#FAF9F6] text-xl sm:text-5xl font-light font-poppins drop-shadow-lg tracking-wide">
                 {headings[index].title}
               </h2>
-              <p className="text-[#FAF9F6] font-light font-poppins text-xs sm:text-lg mt-3 opacity-90 max-w-2xl">
+              {/* <p className="text-[#FAF9F6] font-light font-poppins text-xs sm:text-lg mt-3 opacity-90 max-w-2xl">
                 {headings[index].sub}
-              </p>
+              </p> */}
 
               <Link to="/products">
                 <button
@@ -69,19 +66,23 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Floating Contact Buttons */}
-      <div className="fixed bottom-4 right-4 flex flex-col gap-3 z-50">
+      {/* Floating Contact Buttons - Refined */}
+      <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
         <a
           href="tel:+91"
-          className="bg-sky-400 text-white p-3 rounded-full shadow-lg hover:bg-sky-700 transition-all duration-300 transform hover:scale-110"
+          className="group relative bg-white text-sky-600 p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-sky-200 hover:border-sky-300"
+          aria-label="Call us"
         >
-          <FaPhoneAlt size={22} />
+          <FaPhoneAlt size={20} className="relative z-10" />
+          <div className="absolute inset-0 bg-sky-50 rounded-full scale-0 group-hover:scale-100 transition-transform"></div>
         </a>
         <a
           href="https://wa.me/"
-          className="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-110"
+          className="group relative bg-white text-green-600 p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-green-200 hover:border-green-300"
+          aria-label="WhatsApp us"
         >
-          <FaWhatsapp size={24} />
+          <FaWhatsapp size={22} className="relative z-10" />
+          <div className="absolute inset-0 bg-green-50 rounded-full scale-0 group-hover:scale-100 transition-transform"></div>
         </a>
       </div>
     </div>

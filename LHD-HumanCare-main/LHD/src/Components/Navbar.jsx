@@ -21,7 +21,7 @@ export default function Navbar() {
         <>
         {/* Main Navbar */}
 <header className="sticky top-0 z-50 bg-white shadow-xl">
-  <nav className="relative bg-gradient-to-r from-blue-50 via-white to-sky-50 border-b-2 border-sky-500">
+  <nav className="relative bg-gradient-to-r from-blue-50 via-white to-sky-50 border border-sky-300">
     <div className="container mx-auto px-4 lg:px-8 relative">
       <div className="flex items-center justify-between h-20">
         {/* Logo Section */}
@@ -77,7 +77,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={toggleSidebar}
-          className="lg:hidden relative p-3 rounded-full border-2 border-sky-500 bg-white text-sky-600 shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-110"
+          className="lg:hidden relative p-3 rounded-full border border-sky-500 bg-white text-sky-600 shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-110"
           aria-label="Toggle menu"
         >
           {isSidebarOpen ? <FiX size={16} /> : <FiMenu size={16} />}
