@@ -39,13 +39,6 @@ const ProductShowcase = () => {
       image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=400&h=300&fit=crop"
     },
     {
-      icon: <Milk size={36} />,
-      name: "Flavored Milk",
-      category: "flavored", // Add category ID
-      desc: "Delicious chocolate and strawberry milk that kids love. Made with real ingredients and fresh milk.",
-      image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&h=300&fit=crop"
-    },
-    {
       icon: <Droplets size={36} />,
       name: "Butter Milk",
       category: "chhaach", // Add category ID
@@ -66,16 +59,16 @@ const ProductShowcase = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-white to-sky-50 py-24 px-6">
+    <div className="bg-gradient-to-b from-white to-sky-50 py-12 px-6 mt-8">
       <div className="max-w-7xl mx-auto">
         {/* Premium Header Section */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-5 py-2 bg-white border-2 border-sky-200 text-sky-700 text-sm font-semibold rounded-full mb-6 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-5 py-2 bg-white border-2 border-sky-200 text-sky-700 text-sm font-normal rounded-full mb-6 shadow-sm">
             <Leaf size={16} />
             Our Product Range
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Fresh From Our Farms
+          <h2 className="text-3xl md:text-5xl font-normal text-gray-900 mb-6 leading-tight">
+            Fresh From Our Farmers
             <span className="block text-sky-600 mt-2">To Your Family</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -89,7 +82,7 @@ const ProductShowcase = () => {
           {products.map((product, index) => (
             <div
               key={index}
-              className="group bg-white rounded-2xl border-2 border-gray-100 overflow-hidden hover:border-sky-300 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+              className="group bg-white rounded-2xl border-2 border-gray-100 overflow-hidden hover:border-sky-300 mx-2 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
             >
               {/* Product Image Header */}
               <div className="relative h-48 bg-gradient-to-br from-sky-100 to-blue-100 overflow-hidden">
@@ -108,7 +101,7 @@ const ProductShowcase = () => {
 
               {/* Product Content */}
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-sky-600 transition-colors">
+                <h3 className="text-2xl font-normal text-gray-900 mb-4 group-hover:text-sky-600 transition-colors">
                   {product.name}
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-6 min-h-[4.5rem]">
@@ -170,7 +163,7 @@ const ProductShowcase = () => {
         </div> */}
 
         {/* Premium CTA Section */}
-        <div className="mt-16 bg-gradient-to-br from-sky-600 to-blue-700 rounded-3xl p-12 text-center relative overflow-hidden">
+        <div className="mt-16 bg-gradient-to-br from-sky-600 to-blue-700 rounded-3xl p-12 text-center relative overflow-hidden mx-2">
           {/* Decorative elements */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-32 translate-x-32"></div>
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-24 -translate-x-24"></div>
@@ -180,7 +173,7 @@ const ProductShowcase = () => {
               <Leaf size={16} />
               Farm Fresh Quality
             </div>
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h3 className="text-3xl md:text-4xl font-normal text-white mb-4">
               Experience the Shvetdhara Difference
             </h3>
             <p className="text-sky-100 text-lg mb-8 max-w-2xl mx-auto">

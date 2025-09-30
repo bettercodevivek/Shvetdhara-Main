@@ -24,7 +24,7 @@ const WhyChooseUs = () => {
     {
       icon: <Users size={32} />,
       title: "Trusted Partnership",
-      desc: "Established market presence since 2016, building long-term relationships with customers through consistent quality delivery.",
+      desc: "Established market presence since 2002, building long-term relationships with customers through consistent quality delivery.",
     },
     {
       icon: <Truck size={32} />,

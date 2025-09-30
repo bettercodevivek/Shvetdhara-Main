@@ -301,7 +301,7 @@ const ShvetdharaProductsPage = () => {
             <div className="absolute bottom-4 left-6">
               <h3 className="text-2xl font-bold text-white mb-1">{product.name}</h3>
               <p className="text-sky-200">{product.tagline}</p>
-              <p className="text-white font-bold text-lg mt-1">{product.price}</p>
+              {/* <p className="text-white font-bold text-lg mt-1">{product.price}</p> */}
             </div>
           </div>
 
@@ -366,14 +366,14 @@ const ShvetdharaProductsPage = () => {
               </div>
             </div>
 
-            <div className="mt-6 flex gap-3">
+            {/* <div className="mt-6 flex gap-3">
               <button className="flex-1 bg-sky-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-sky-700">
                 Call to Order
               </button>
               <button className="flex-1 border-2 border-sky-600 text-sky-600 py-3 px-6 rounded-lg font-semibold hover:bg-sky-50">
                 Get Info
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -519,7 +519,7 @@ const ShvetdharaProductsPage = () => {
                     <div className="p-4">
                       <div className="flex justify-between items-start mb-2">
                         <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
-                        <span className="text-sky-600 font-bold">{product.price}</span>
+                        {/* <span className="text-sky-600 font-bold">{product.price}</span> */}
                       </div>
                       <p className="text-gray-600 text-sm mb-3">{product.tagline}</p>
                       

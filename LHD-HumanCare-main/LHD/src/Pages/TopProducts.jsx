@@ -146,7 +146,7 @@ const HeroCarousel = () => {
             <div className="space-y-6 text-center lg:text-left">
               {/* Product Name */}
               <div className="space-y-4">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-normal text-gray-800 leading-tight">
                   <span className="text-sky-600">
                     {currentProduct.name}
                   </span>
@@ -155,10 +155,6 @@ const HeroCarousel = () => {
                 <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-lg mx-auto lg:mx-0">
                   {currentProduct.tagline}
                 </p>
-
-                <div className="text-2xl sm:text-3xl font-bold text-sky-600">
-                  {currentProduct.price}
-                </div>
               </div>
 
               {/* Features */}
