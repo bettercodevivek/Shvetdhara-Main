@@ -44,7 +44,7 @@ const AboutUsFarmToGlass = () => {
   const milestones = [
     { year: "2002", event: "Founded with a vision to revolutionize dairy farming", icon: "🌱" },
     { year: "2009", event: "First milk delivery to 100+ local families", icon: "🚚" },
-    { year: "2015", event: "Expanded to serve 500+ households across villages", icon: "🏘️" },
+    { year: "2016", event: "Expanded to serve 500+ households across villages", icon: "🏘️" },
     { year: "2020", event: "Launched premium dairy product range", icon: "🏆" },
   ];
 
@@ -102,13 +102,13 @@ const AboutUsFarmToGlass = () => {
         {/* Hero Content */}
         <div className="relative z-10 text-center text-white px-4 sm:px-8 max-w-5xl mx-auto">
           <div className="mb-6">
-            <span className="inline-block px-6 py-3 bg-sky-500/20 backdrop-blur-sm rounded-full text-sky-300 text-sm font-medium border border-sky-500/30">
+            <span className="inline-block px-6 py-2 bg-sky-500/20 backdrop-blur-sm rounded-full text-sky-300 text-sm font-medium border border-sky-500/30">
               Premium Dairy Since 2002
             </span>
           </div>
           
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            From Our <span className="bg-gradient-to-r from-sky-400 to-sky-300 bg-clip-text text-transparent">Farms</span> to Your <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">Glass</span>
+            From Our <span className="bg-gradient-to-r from-sky-400 to-sky-300 bg-clip-text text-transparent">Farmers</span> to Your <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">Glass</span>
           </h1>
           
           <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">
@@ -188,7 +188,7 @@ const AboutUsFarmToGlass = () => {
             </p>
             
             <p className="text-gray-600 text-lg sm:text-xl leading-relaxed">
-              From humane farming practices to rigorous quality checks, every drop of milk and spoon of curd reflects our unwavering commitment to purity, sustainability, and the well-being of our farming communities.
+              Mr. Sandeep, the Director of Shvetdhara started his journey as the retailer of milk products in 13, June 2002. This initiative played a significant role that inspired him to start a dairy product plant of his own. Later in 2009, he installed his own setup of Paneer Plant as “New Kamboj Dairy” which proved to be a great success. This plant infused employment and growth in the private sector. After ample time Mr. Sandeep realized that the quality of milk was degrading in the city with time. So he catered milk to the city by instigating a new project called ‘Shvetdhara Dairy Food Private Limited’ on 12 Feb, 2016. ‘Shvet’ is inspired by the name “Shvet Kranti” which comes from a freedom movement started by Mr. Verghese Kurien. Shvet also means purity in its best form. Whereas, ‘Dhara’ is the stream, the positive stream needed to flourish in the market.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -212,7 +212,7 @@ const AboutUsFarmToGlass = () => {
       {/* Founders Section */}
       <section 
         ref={(el) => pushRef(el, 'founders')}
-        className="bg-gradient-to-br from-gray-50 to-white py-20 sm:py-32 px-4 sm:px-8"
+        className="bg-gradient-to-br from-gray-50 to-white mb-12 py-12 sm:py-32 px-4 sm:px-8"
       >
         <div className="max-w-screen-sm mx-auto max-h-dvh">
           <div className={`text-center mb-16 transition-all duration-1000 transform ${
@@ -228,38 +228,33 @@ const AboutUsFarmToGlass = () => {
               Passionate leaders dedicated to revolutionizing the dairy industry with integrity and innovation
             </p>
           </div>
+          <div className="flex justify-center">
+  <div
+    className={`group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-700 max-w-3xl w-full ${
+      visibleSections.has('founders') ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+    }`}
+  >
+    <div className="relative md:h-96 overflow-hidden">
+      <img
+        src={founders[0].img}
+        alt={founders[0].name}
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+    </div>
+
+    <div className="p-10 text-center">
+      <h3 className="text-3xl font-bold text-sky-700 mb-1">{founders[0].name}</h3>
+      <p className="text-sky-300 text-lg mb-6">{founders[0].role}</p>
+      <Quote size={36} className="text-sky-200 mx-auto mb-4" />
+      <p className="text-gray-800 text-xl leading-relaxed italic">
+        "{founders[0].quote}"
+      </p>
+    </div>
+  </div>
+</div>
+
           
-          <div className="grid grid-cols-1">
-            {founders.map((founder, idx) => (
-              <div
-                key={idx}
-                className={`group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-700 ${
-                  visibleSections.has('founders') ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                }`}
-                style={{ transitionDelay: `${idx * 200}ms` }}
-              >
-                <div className="relative h-80 overflow-hidden">
-                  <img
-                    src={founder.img}
-                    alt={founder.name}
-                    className="w-full h-full object-cover transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-black opacity-40"></div>
-                  <div className="absolute bottom-6 left-6 text-white">
-                    <h3 className="text-2xl text-sky-200 font-bold mb-1">{founder.name}</h3>
-                    <p className="text-sky-100 font-medium">{founder.role}</p>
-                  </div>
-                </div>
-                
-                <div className="p-8">
-                  <Quote size={32} className="text-sky-200 mb-4" />
-                  <p className="text-black text-lg leading-relaxed italic">
-                    "{founder.quote}"
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

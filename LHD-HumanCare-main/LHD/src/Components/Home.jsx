@@ -10,8 +10,8 @@ const Home = () => {
     <>
     <Hero/>
     <Metrics/>
-    <IndianMilkMap/>
     <TopProducts/>
+    <IndianMilkMap/>
     <Page2/>
     <Page3/>
     </>

@@ -163,33 +163,7 @@ const ProductShowcase = () => {
         </div> */}
 
         {/* Premium CTA Section */}
-        <div className="mt-16 bg-gradient-to-br from-sky-600 to-blue-700 rounded-3xl p-12 text-center relative overflow-hidden mx-2">
-          {/* Decorative elements */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-32 translate-x-32"></div>
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-24 -translate-x-24"></div>
-          
-          <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 px-5 py-2 bg-white/20 backdrop-blur-sm text-white text-sm font-semibold rounded-full mb-6">
-              <Leaf size={16} />
-              Farm Fresh Quality
-            </div>
-            <h3 className="text-3xl md:text-4xl font-normal text-white mb-4">
-              Experience the Shvetdhara Difference
-            </h3>
-            <p className="text-sky-100 text-lg mb-8 max-w-2xl mx-auto">
-              Join thousands of families who trust us for their daily dairy needs. 
-              Fresh, pure, and delivered with care.
-            </p>
-            {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-white text-sky-600 font-bold rounded-xl hover:bg-sky-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                Start Your Subscription
-              </button>
-              <button className="px-8 py-4 border-2 border-white text-white font-bold rounded-xl hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
-                Call Us: +91 98765 43210
-              </button>
-            </div> */}
-          </div>
-        </div>
+    
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, Circle, Polyline } from 'react-leaflet';
-import { MapPin, Truck, Users, Award, Droplets, Building2, PhoneCall, Star, Clock } from "lucide-react";
+import { MapPin, Truck, Users, Award, Droplets, Building2, Clock, Package, ArrowRight } from "lucide-react";
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
@@ -14,17 +14,17 @@ L.Icon.Default.mergeOptions({
 
 // Custom icon for headquarters
 const hqIcon = new L.Icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png',
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-  iconSize: [30, 49],
-  iconAnchor: [15, 49],
-  popupAnchor: [1, -40],
-  shadowSize: [49, 49]
+  iconSize: [32, 52],
+  iconAnchor: [16, 52],
+  popupAnchor: [1, -42],
+  shadowSize: [52, 52]
 });
 
 // Custom icon for distribution cities
 const cityIcon = new L.Icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png',
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
   iconSize: [25, 41],
   iconAnchor: [12, 41],
@@ -34,11 +34,30 @@ const cityIcon = new L.Icon({
 
 const IndianMilkMap = () => {
   const [selectedCity, setSelectedCity] = useState(null);
-  const [hoveredStat, setHoveredStat] = useState(null);
+  const [activeTab, setActiveTab] = useState('all');
+  const [mapReady, setMapReady] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setMapReady(true), 100);
+  }, []);
 
   const distributionCities = [
     {
       id: 1,
+      name: "Dehradun",
+      state: "Uttarakhand",
+      position: [30.3165, 78.0322],
+      stats: {
+        families: "50,000+",
+        since: "2016",
+        delivery: "Morning & Evening",
+        specialty: "Home of Shvetdhara - Our main dairy farm and headquarters serving the local community"
+      },
+      isHeadquarters: true,
+      region: "central"
+    },
+    {
+      id: 2,
       name: "Meerut",
       state: "Uttar Pradesh",
       position: [28.9845, 77.7064],
@@ -48,10 +67,11 @@ const IndianMilkMap = () => {
         delivery: "Morning & Evening",
         specialty: "Home of Shvetdhara - Our main dairy farm and headquarters serving the local community"
       },
-      isHeadquarters: true
+      isHeadquarters: false,
+      region: "central"
     },
     {
-      id: 2,
+      id: 3,
       name: "Haridwar",
       state: "Uttarakhand",
       position: [29.9457, 78.1642],
@@ -60,10 +80,11 @@ const IndianMilkMap = () => {
         since: "2017",
         delivery: "Daily Fresh",
         specialty: "Serving the holy city with pure, quality milk for families and temples"
-      }
+      },
+      region: "north"
     },
     {
-      id: 3,
+      id: 4,
       name: "Moradabad",
       state: "Uttar Pradesh",
       position: [28.8389, 78.7378],
@@ -72,10 +93,11 @@ const IndianMilkMap = () => {
         since: "2017",
         delivery: "Morning & Evening",
         specialty: "Major distribution hub serving the brass city with fresh dairy daily"
-      }
+      },
+      region: "west"
     },
     {
-      id: 4,
+      id: 5,
       name: "Rampur",
       state: "Uttar Pradesh",
       position: [28.8103, 79.0250],
@@ -84,10 +106,11 @@ const IndianMilkMap = () => {
         since: "2018",
         delivery: "Daily Delivery",
         specialty: "Growing presence in this historic city known for its rich culture"
-      }
+      },
+      region: "east"
     },
     {
-      id: 5,
+      id: 6,
       name: "Bareilly",
       state: "Uttar Pradesh",
       position: [28.3670, 79.4304],
@@ -96,10 +119,11 @@ const IndianMilkMap = () => {
         since: "2018",
         delivery: "Twice Daily",
         specialty: "Serving one of UP's major cities with reliable fresh milk supply"
-      }
+      },
+      region: "east"
     },
     {
-      id: 6,
+      id: 7,
       name: "Budaun",
       state: "Uttar Pradesh",
       position: [28.0342, 79.1140],
@@ -108,10 +132,11 @@ const IndianMilkMap = () => {
         since: "2019",
         delivery: "Daily Fresh",
         specialty: "Bringing farm-fresh quality to this ancient historic town"
-      }
+      },
+      region: "south"
     },
     {
-      id: 7,
+      id: 8,
       name: "Sambhal",
       state: "Uttar Pradesh",
       position: [28.5850, 78.5703],
@@ -120,10 +145,11 @@ const IndianMilkMap = () => {
         since: "2019",
         delivery: "Morning Delivery",
         specialty: "Expanding our reach to serve more families in the region"
-      }
+      },
+      region: "west"
     },
     {
-      id: 8,
+      id: 9,
       name: "Amroha",
       state: "Uttar Pradesh",
       position: [28.9034, 78.4671],
@@ -132,10 +158,11 @@ const IndianMilkMap = () => {
         since: "2018",
         delivery: "Daily Fresh",
         specialty: "Trusted by local families for consistent quality and freshness"
-      }
+      },
+      region: "west"
     },
     {
-      id: 9,
+      id: 10,
       name: "Bijnor",
       state: "Uttar Pradesh",
       position: [29.3730, 78.1318],
@@ -144,10 +171,11 @@ const IndianMilkMap = () => {
         since: "2019",
         delivery: "Morning & Evening",
         specialty: "Serving this sugarcane belt town with nutritious dairy products"
-      }
+      },
+      region: "north"
     },
     {
-      id: 10,
+      id: 11,
       name: "Bulandshahr",
       state: "Uttar Pradesh",
       position: [28.4074, 77.8484],
@@ -156,10 +184,11 @@ const IndianMilkMap = () => {
         since: "2019",
         delivery: "Daily Delivery",
         specialty: "Close to home base, ensuring freshest possible delivery times"
-      }
+      },
+      region: "south"
     },
     {
-      id: 11,
+      id: 12,
       name: "Hathras",
       state: "Uttar Pradesh",
       position: [27.5950, 78.0506],
@@ -168,89 +197,106 @@ const IndianMilkMap = () => {
         since: "2020",
         delivery: "Morning Delivery",
         specialty: "Our newest expansion bringing Shvetdhara quality to more families"
-      }
+      },
+      region: "south"
     }
   ];
 
   const centerPosition = [28.7, 78.3];
   const headquarters = distributionCities.find(c => c.isHeadquarters);
 
-  // Create connecting lines from HQ to all cities
   const connectionLines = distributionCities
     .filter(city => !city.isHeadquarters)
     .map(city => [headquarters.position, city.position]);
 
+  const filteredCities = activeTab === 'all' 
+    ? distributionCities 
+    : distributionCities.filter(c => c.region === activeTab || c.isHeadquarters);
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <div className="min-h-screen bg-sky-50">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-sky-100">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }}></div>
-        </div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 py-12">
-          <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-6 py-2 bg-white/10 backdrop-blur-sm border border-sky-400 text-sky-700 text-sm font-semibold rounded-full mb-8 shadow-lg">
-              <Star size={16} className="text-sky-500" />
-              Excellence in Dairy Since 2002
-            </div>
-            <h1 className="text-3xl md:text-5xl font-normal mb-6 tracking-tight">
+      <div className="border-b border-sky-100 bg-white">
+        <div className="max-w-7xl mx-auto px-6 py-20">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-block px-4 py-2 rounded-full bg-inherit border border-sky-200 text-sky-700 text-sm font-normal tracking-wide mb-6">
               Our Distribution Network
+            </div>
+            <h1 className="text-3xl md:text-6xl font-light mb-6 text-gray-900 tracking-tight">
+              Serving Northern India
             </h1>
-            <p className="text-xl md:text-2xl text-black max-w-3xl mb-6 mx-auto font-light leading-relaxed">
-              Delivering premium dairy excellence across 11 cities in Northern India
+            <p className="text-xl text-gray-600 leading-relaxed mb-8">
+              From our headquarters in Dehradun, we deliver premium dairy products to over 100,000 families across more than 12 cities, maintaining the highest standards of quality and freshness.
             </p>
+            <div className="flex items-center justify-center gap-4 text-sm text-gray-500">
+              <span>Est. 2002</span>
+              <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
+              <span>20+ Years of Excellence</span>
+              <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
+              <span>ISO Certified</span>
+            </div>
           </div>
         </div>
-
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-slate-50 to-transparent"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 -mt-8">
-        {/* Stats Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12 mx-4">
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        {/* Stats Section */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-6 mb-12 max-w-5xl mx-auto">
           {[
-            { icon: <MapPin size={28} />, value: "11+", label: "Cities Served", color: "from-sky-200 to-sky-300", glow: "purple" },
-            { icon: <Users size={28} />, value: "100K+", label: "Happy Families", color: "from-sky-200 to-sky-300", glow: "blue" },
-            { icon: <Truck size={28} />, value: "365", label: "Days a Year", color: "from-sky-200 to-sky-300", glow: "green" },
-            { icon: <Droplets size={28} />, value: "100%", label: "Pure Quality", color: "from-sky-200 to-sky-300", glow: "cyan" },
+            { icon: <MapPin size={24} />, value: "12+", label: "Cities Served" },
+            { icon: <Users size={24} />, value: "100K+", label: "Happy Families" },
+            { icon: <Truck size={24} />, value: "365", label: "Days Active" },
+            { icon: <Droplets size={24} />, value: "100%", label: "Quality" },
           ].map((stat, idx) => (
-            <div 
-              key={idx} 
-              className="group relative"
-              onMouseEnter={() => setHoveredStat(idx)}
-              onMouseLeave={() => setHoveredStat(null)}
-            >
-              <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300`}></div>
-              <div className="relative bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${stat.color} text-white mb-4 shadow-lg`}>
-                  {stat.icon}
-                </div>
-                <div className="text-2xl sm:text-3xl font-normal text-gray-900 mb-1">{stat.value}</div>
-                <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+            <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-sky-100 hover:shadow-md hover:border-sky-200 transition-all group">
+              <div className="mb-4 text-sky-400 group-hover:text-sky-600 transition-colors">
+                {stat.icon}
               </div>
+              <div className="text-2xl sm:text-4xl font-light text-gray-900 mb-2">{stat.value}</div>
+              <div className="text-sm text-gray-500 uppercase tracking-wide">{stat.label}</div>
             </div>
           ))}
         </div>
 
         {/* Map Section */}
-        <div className="mb-12">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-4xl font-normal text-gray-900 mb-3">
-              Shvetdhara's Distribution Map
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Explore our growing network of dairy excellence. Click any location to discover our local impact.
-            </p>
+        <div className="mb-20">
+          <div className="flex flex-col text-center sm:text-left md:flex-row items-start md:items-end justify-between mb-8 max-w-6xl mx-auto">
+            <div className="mb-4 md:mb-0">
+              <h2 className="text-3xl font-light text-gray-900 mb-2">
+                Distribution Map
+              </h2>
+              <p className="text-gray-600">
+                Click on any location to view detailed information
+              </p>
+            </div>
+            
+            {/* Region Filter */}
+            <div className="flex flex-row border border-sky-200 bg-white rounded-2xl overflow-hidden">
+              {[
+                { id: 'all', label: 'All Regions' },
+                { id: 'north', label: 'North' },
+                { id: 'south', label: 'South' },
+                { id: 'east', label: 'East' },
+                { id: 'west', label: 'West' },
+              ].map(tab => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`px-4 py-2 text-sm transition-colors ${
+                    activeTab === tab.id 
+                      ? 'bg-sky-300 text-white' 
+                      : 'bg-white text-gray-600 hover:bg-sky-50'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
           </div>
 
-          <div className="relative">
-            <div className="absolute -inset-4 bg-sky-200 rounded-3xl blur-2xl opacity-20"></div>
-            <div className="relative bg-white rounded-3xl shadow-2xl p-3 border-4 border-white">
-              <div className="h-[500px] md:h-[650px] rounded-2xl overflow-hidden ring-1 ring-gray-200">
+          <div className="bg-white rounded-lg shadow-lg border border-sky-100 p-6 max-w-6xl mx-auto">
+            <div className="h-[600px] bg-sky-50 rounded-lg overflow-hidden border border-sky-100">
+              {mapReady && (
                 <MapContainer 
                   center={centerPosition} 
                   zoom={9} 
@@ -263,16 +309,15 @@ const IndianMilkMap = () => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   />
                   
-                  {/* Animated coverage circles */}
                   <Circle
                     center={centerPosition}
                     radius={70000}
                     pathOptions={{
-                      color: '#8b5cf6',
-                      fillColor: '#c084fc',
+                      color: '#0284c7',
+                      fillColor: '#0ea5e9',
                       fillOpacity: 0.05,
-                      weight: 3,
-                      dashArray: '20, 15'
+                      weight: 2,
+                      dashArray: '5, 10'
                     }}
                   />
                   
@@ -280,30 +325,28 @@ const IndianMilkMap = () => {
                     center={centerPosition}
                     radius={45000}
                     pathOptions={{
-                      color: '#3b82f6',
-                      fillColor: '#93c5fd',
+                      color: '#0284c7',
+                      fillColor: '#0ea5e9',
                       fillOpacity: 0.08,
                       weight: 2,
-                      dashArray: '15, 10'
+                      dashArray: '5, 10'
                     }}
                   />
 
-                  {/* Connection lines from HQ */}
                   {connectionLines.map((line, idx) => (
                     <Polyline
                       key={idx}
                       positions={line}
                       pathOptions={{
-                        color: '#8b5cf6',
-                        weight: 2,
+                        color: '#0ea5e9',
+                        weight: 1.5,
                         opacity: 0.4,
-                        dashArray: '8, 8'
+                        dashArray: '5, 5'
                       }}
                     />
                   ))}
 
-                  {/* City Markers */}
-                  {distributionCities.map((city) => (
+                  {filteredCities.map((city) => (
                     <Marker
                       key={city.id}
                       position={city.position}
@@ -313,14 +356,14 @@ const IndianMilkMap = () => {
                       }}
                     >
                       <Popup>
-                        <div className="p-3 min-w-[280px]">
-                          <div className="flex items-start justify-between mb-4">
+                        <div className="p-4 min-w-[320px]">
+                          <div className="flex items-start justify-between mb-4 pb-4 border-b border-sky-100">
                             <div>
-                              <h3 className="text-xl font-bold text-gray-900 mb-1">{city.name}</h3>
-                              <p className="text-sm text-gray-500 font-medium">{city.state}</p>
+                              <h3 className="text-xl font-normal text-gray-900 mb-1">{city.name}</h3>
+                              <p className="text-sm text-gray-500">{city.state}</p>
                             </div>
                             {city.isHeadquarters && (
-                              <span className="flex items-center gap-1 px-3 py-1.5 bg-green-200 text-white text-xs font-bold rounded-full shadow-lg">
+                              <span className="flex items-center gap-1 px-3 py-1 bg-red-600 text-white text-xs font-medium uppercase tracking-wide">
                                 <Building2 size={12} />
                                 HQ
                               </span>
@@ -328,32 +371,32 @@ const IndianMilkMap = () => {
                           </div>
 
                           <div className="space-y-3 mb-4">
-                            <div className="flex items-center gap-3 p-2 bg-purple-50 rounded-lg">
-                              <Users className="text-purple-600 flex-shrink-0" size={18} />
+                            <div className="flex items-start gap-3">
+                              <Users className="text-sky-500 mt-0.5" size={18} />
                               <div>
-                                <div className="text-lg font-bold text-gray-900">{city.stats.families}</div>
-                                <div className="text-xs text-gray-600">Families Served</div>
+                                <div className="text-lg font-normal text-gray-900">{city.stats.families}</div>
+                                <div className="text-xs text-gray-500 uppercase tracking-wide">Families Served</div>
                               </div>
                             </div>
                             
-                            <div className="flex items-center gap-3 p-2 bg-blue-50 rounded-lg">
-                              <Clock className="text-blue-600 flex-shrink-0" size={18} />
+                            <div className="flex items-start gap-3">
+                              <Clock className="text-sky-500 mt-0.5" size={18} />
                               <div>
-                                <div className="text-sm font-semibold text-gray-900">{city.stats.delivery}</div>
-                                <div className="text-xs text-gray-600">Delivery Schedule</div>
+                                <div className="text-sm text-gray-900">{city.stats.delivery}</div>
+                                <div className="text-xs text-gray-500 uppercase tracking-wide">Delivery Schedule</div>
                               </div>
                             </div>
 
-                            <div className="flex items-center gap-3 p-2 bg-green-50 rounded-lg">
-                              <Award className="text-green-600 flex-shrink-0" size={18} />
+                            <div className="flex items-start gap-3">
+                              <Award className="text-sky-500 mt-0.5" size={18} />
                               <div>
-                                <div className="text-sm font-semibold text-gray-900">Since {city.stats.since}</div>
-                                <div className="text-xs text-gray-600">Years of Service</div>
+                                <div className="text-sm text-gray-900">Since {city.stats.since}</div>
+                                <div className="text-xs text-gray-500 uppercase tracking-wide">Operational Since</div>
                               </div>
                             </div>
                           </div>
 
-                          <div className="pt-3 border-t border-gray-200">
+                          <div className="pt-4 border-t border-sky-100">
                             <p className="text-sm text-gray-600 leading-relaxed">
                               {city.stats.specialty}
                             </p>
@@ -363,47 +406,136 @@ const IndianMilkMap = () => {
                     </Marker>
                   ))}
                 </MapContainer>
+              )}
+            </div>
+
+            {/* Map Legend */}
+            <div className="flex items-center gap-8 mt-6 text-sm text-gray-600">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 bg-red-600 rounded-sm"></div>
+                <span>Headquarters</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 bg-sky-600 rounded-sm"></div>
+                <span>Distribution Centers</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-0.5 border-t border-dashed border-sky-400"></div>
+                <span>Coverage Radius</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Legend & Info */}
-        <div className="grid md:grid-cols-1 gap-6 mb-16 md:mx-60">
-          <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-200 shadow-lg">
-            <h3 className="text-xl font-normal text-gray-900 mb-6 flex items-center gap-2">
-              <MapPin className="text-blue-600" size={24} />
-              Map Legend
-            </h3>
-            <div className="space-y-4">
-              <div className="flex items-center gap-3 p-3 bg-white rounded-xl">
-                <div className="w-8 h-10 bg-green-200 rounded-t-full shadow-lg"></div>
-                <div>
-                  <div className="font-semibold text-gray-900">Headquarters</div>
-                  <div className="text-sm text-gray-600">Main Dairy Farm</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 p-3 bg-white rounded-xl">
-                <div className="w-8 h-10 bg-sky-200 rounded-t-full shadow-lg"></div>
-                <div>
-                  <div className="font-semibold text-gray-900">Distribution Cities</div>
-                  <div className="text-sm text-gray-600">10 Service Locations</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 p-3 bg-white rounded-xl">
-                <div className="w-10 h-10 border-4 border-dashed border-purple-400 rounded-full bg-purple-50"></div>
-                <div>
-                  <div className="font-semibold text-gray-900">Coverage Area</div>
-                  <div className="text-sm text-gray-600">Service Radius Zones</div>
-                </div>
-              </div>
-            </div>
+        {/* Cities Grid */}
+        <div className="border-t border-sky-100 pt-16">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-light text-gray-900 mb-2">
+              Our Locations
+            </h2>
+            <p className="text-gray-600">
+              Detailed overview of all our distribution centers
+            </p>
           </div>
 
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {distributionCities.map((city) => (
+              <button
+                key={city.id}
+                onClick={() => setSelectedCity(city)}
+                className="text-left p-6 bg-white rounded-lg border border-sky-100 hover:border-sky-300 hover:shadow-md transition-all group"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 className="text-lg font-normal text-gray-900 mb-1 group-hover:text-sky-600 transition-colors">
+                      {city.name}
+                    </h3>
+                    <p className="text-sm text-gray-500">{city.state}</p>
+                  </div>
+                  {city.isHeadquarters && (
+                    <span className="px-2 py-1 bg-white border border-sky-300 text-sky-700 rounded-full text-xs font-medium uppercase tracking-wide">
+                      HQ
+                    </span>
+                  )}
+                </div>
+
+                <div className="space-y-2 mb-4">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-500">Families</span>
+                    <span className="text-gray-900 font-medium">{city.stats.families}</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-500">Since</span>
+                    <span className="text-gray-900 font-medium">{city.stats.since}</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-500">Delivery</span>
+                    <span className="text-gray-900 font-medium">{city.stats.delivery}</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center text-sm text-gray-400 group-hover:text-sky-600 transition-colors">
+                  View Details
+                  <ArrowRight size={16} className="ml-1" />
+                </div>
+              </button>
+            ))}
+          </div>
         </div>
 
-       
+      
       </div>
+
+      {/* Selected City Modal */}
+      {selectedCity && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setSelectedCity(null)}>
+          <div className="bg-white max-w-2xl w-full p-8 rounded-lg shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-start justify-between mb-6">
+              <div>
+                <h3 className="text-3xl font-light text-gray-900 mb-2">{selectedCity.name}</h3>
+                <p className="text-gray-500">{selectedCity.state}</p>
+              </div>
+              <button 
+                onClick={() => setSelectedCity(null)}
+                className="text-gray-400 hover:text-gray-900 text-2xl w-8 h-8 flex items-center justify-center hover:bg-sky-50 rounded-full transition-colors"
+              >
+                ×
+              </button>
+            </div>
+
+            <div className="grid grid-cols-3 gap-6 mb-6 pb-6 border-b border-sky-100">
+              <div>
+                <div className="text-lg sm:text-2xl text-gray-900 mb-1">{selectedCity.stats.families}</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wide">Families</div>
+              </div>
+              <div>
+                <div className="text-lg sm:text-2xl text-gray-900 mb-1">{selectedCity.stats.since}</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wide">Since</div>
+              </div>
+              <div>
+                <div className="text-lg sm:text-2xl text-gray-900 mb-1">{selectedCity.stats.delivery}</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wide">Schedule</div>
+              </div>
+            </div>
+
+            <p className="text-gray-600 leading-relaxed mb-6">
+              {selectedCity.stats.specialty}
+            </p>
+
+            {selectedCity.isHeadquarters && (
+              <div className="bg-sky-50 border border-sky-200 p-4 rounded-lg">
+                <div className="flex items-center gap-2 mb-2">
+                  <Building2 size={20} className="text-sky-300" />
+                  <span className="text-sm font-medium text-gray-900 uppercase tracking-wide">Headquarters Location</span>
+                </div>
+                <p className="text-sm text-gray-600">
+                  Our main dairy farm and distribution center, maintaining the highest standards of production and quality control.
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
