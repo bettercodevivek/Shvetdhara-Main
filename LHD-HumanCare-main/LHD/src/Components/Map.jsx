@@ -214,7 +214,7 @@ const IndianMilkMap = () => {
     : distributionCities.filter(c => c.region === activeTab || c.isHeadquarters);
 
   return (
-    <div className="min-h-screen bg-sky-50">
+    <div className="min-h-screen bg-sky-50 overflow-x-hidden">
       {/* Hero Section */}
       <div className="border-b border-sky-100 bg-white">
         <div className="max-w-7xl mx-auto px-6 py-20">
@@ -410,7 +410,7 @@ const IndianMilkMap = () => {
             </div>
 
             {/* Map Legend */}
-            <div className="flex items-center gap-8 mt-6 text-sm text-gray-600">
+            <div className="flex flex-wrap items-center gap-8 mt-6 text-sm text-gray-600">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-red-600 rounded-sm"></div>
                 <span>Headquarters</span>
